@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @beer.name
+p
+  strong Style:
+  = @beer.style
+p
+  strong Brewery:
+  = @beer.brewery_id
+
+= link_to 'Edit', edit_beer_path(@beer)
+'|
+= link_to 'Back', beers_path
