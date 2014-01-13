@@ -56,3 +56,5 @@ group :development do
   gem 'pry-plus'
   gem 'pry-byebug'
 end
+
+gem "slim-rails"
