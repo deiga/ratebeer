@@ -1,11 +1,9 @@
 p#notice = notice
 
-p
-  strong Name:
+h2
   = @brewery.name
 p
-  strong Year:
-  = @brewery.year
+  em Established at #{@brewery.year}
 
 = link_to 'Edit', edit_brewery_path(@brewery)
 '|
