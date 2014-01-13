@@ -5,7 +5,12 @@ h2
 p
   em Established at #{@brewery.year}
 
-p Beers: #{@brewery.beers.count}
+p Number of beers #{@brewery.beers.count}
+
+p
+  - @brewery.beers.each do |beer|
+    = raw "#{link_to beer.name, beer} "
+
 
 = link_to 'Edit', edit_brewery_path(@brewery)
 '|
