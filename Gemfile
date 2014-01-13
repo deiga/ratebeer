@@ -44,4 +44,15 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
+group :development do
+  gem 'bullet'
+  gem 'sextant' # see routes at /rails/routes
+  gem 'traceroute'
+  gem 'brakeman', :require => false
+  gem 'meta_request' # Binding with RailsPanel in chrome
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'pry-plus'
+  gem 'pry-byebug'
+end
