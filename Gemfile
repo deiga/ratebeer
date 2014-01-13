@@ -63,3 +63,8 @@ gem 'therubyracer', platforms: :ruby # or any other runtime
 gem 'less-rails'
 gem 'autoprefixer-rails'
 gem 'semantic-ui-rails'
+
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
