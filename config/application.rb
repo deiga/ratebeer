@@ -22,6 +22,7 @@ module Ratebeer
     #
 
     config.generators do |g|
+      g.hidden_namespaces << :test_unit << :erb
       #g.stylesheet_engine :less
       g.test_framework :rspec, :fixture => true, :views => false, :fixture_replacement => :factory_girl, :view_specs => false
       g.view_specs false
