@@ -11,10 +11,9 @@ table
 
   - @beers.each do |beer|
     tr
-      td = beer.name
+      td = link_to beer.name, beer
       td = beer.style
-      td = beer.brewery_id
-      td = link_to 'Show', beer
+      td = link_to beer.brewery.name, beer.brewery
       td = link_to 'Edit', edit_beer_path(beer)
       td = link_to 'Destroy', beer, data: {:confirm => 'Are you sure?'}, :method => :delete
 
