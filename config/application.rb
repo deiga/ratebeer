@@ -22,8 +22,7 @@ module Ratebeer
     #
 
     config.generators do |g|
-      g.template_engine :slim
-      g.stylesheet_engine :less
+      #g.stylesheet_engine :less
       g.test_framework :rspec, :fixture => true, :views => false, :fixture_replacement => :factory_girl, :view_specs => false
       g.view_specs false
       g.helper_specs false
