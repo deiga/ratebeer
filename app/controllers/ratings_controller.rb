@@ -13,6 +13,13 @@ class RatingsController < ApplicationController
     redirect_to ratings_path
   end
 
+  def destroy
+    rating = Rating.find(params[:id])
+    rating.delete
+    redirect_to ratings_path
+
+  end
+
   private
 
     def create_params
