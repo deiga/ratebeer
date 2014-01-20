@@ -10,6 +10,8 @@ p
   strong Brewery:
   = @beer.brewery_id
 
+p Has #{@beer.ratings.count} ratings, average #{@beer.average_rating}
+
 = link_to 'Edit', edit_beer_path(@beer)
 '|
 = link_to 'Back', beers_path
