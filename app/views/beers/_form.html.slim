@@ -14,5 +14,5 @@
     = f.text_field :style
   .field
     = f.label :brewery_id
-    = f.number_field :brewery_id
+    = f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name)
   .actions = f.submit 'Save'
