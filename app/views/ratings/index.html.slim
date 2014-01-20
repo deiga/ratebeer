@@ -4,3 +4,5 @@ p Number of ratings: #{@ratings.count}
 ul
   - @ratings.each do |r|
     li = r
+
+= link_to 'New Rating', new_rating_path
