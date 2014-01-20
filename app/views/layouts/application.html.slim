@@ -7,4 +7,9 @@ html
     = csrf_meta_tags
 
   body
+    .navibar
+      = link_to 'breweries', breweries_path
+      '
+      = link_to 'beers', beers_path
+
     == yield
