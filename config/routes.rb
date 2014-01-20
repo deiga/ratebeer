@@ -3,7 +3,7 @@ Ratebeer::Application.routes.draw do
   resources :breweries
 
   get 'kaikki_bisset', to: 'beers#index'
-  get 'ratings', to: 'ratings#index'
+  resources 'ratings', only: [:index, :new, :create]
 
   root 'breweries#index'
 
