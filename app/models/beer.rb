@@ -6,4 +6,8 @@ class Beer < ActiveRecord::Base
     ratings.average('score')
     #ratings.inject(0) { |sum, elem| sum + elem.score }/ratings.count unless ratings.empty?
   end
+
+  def to_s
+    "#{name} - #{brewery.name}"
+  end
 end

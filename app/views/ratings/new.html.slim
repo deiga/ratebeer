@@ -2,7 +2,7 @@ h2 Create new rating
 
 = form_for @rating do |f|
   = f.label :beer_id
-  = f.number_field :beer_id
+  = f.select :beer_id, options_from_collection_for_select(@beers, :id, :to_s)
   = f.label :score
   = f.number_field :score
   = f.submit
