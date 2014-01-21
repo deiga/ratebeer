@@ -21,6 +21,8 @@ module Ratebeer
     # config.i18n.default_locale = :de
     #
 
+    config.autoload_paths += Dir["#{Rails.root}/lib"]
+
     config.generators do |g|
       g.hidden_namespaces << :test_unit << :erb
       #g.stylesheet_engine :less
