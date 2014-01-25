@@ -17,5 +17,7 @@ html
       p no ratings given
     - else
       p previous rating: #{session[:last_rating]}
+    - if session[:user_id].nil?
+      p #{User.find(session[:user_id].username)} signed in
 
     == yield

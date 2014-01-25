@@ -1,8 +1,8 @@
 Ratebeer::Application.routes.draw do
   resources :users
-
   resources :beers
   resources :breweries
+  resources :sessions, only: [:new, :create, :destroy]
 
   get 'signup', to: 'users#new'
   get 'kaikki_bisset', to: 'beers#index'

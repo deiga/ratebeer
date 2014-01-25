@@ -1,0 +1,5 @@
+h1 Sign in
+
+= form_tag sessions_path do
+  = text_field_tag :username, params[:username]
+  = submit_tag "Log in"
