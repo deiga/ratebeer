@@ -10,7 +10,7 @@ p
   strong Brewery:
   = @beer.brewery_id
 
-p Has #{pluralize(@beer.ratings.count, 'rating')}, average #{@beer.average_rating}
+= render 'shared/ratings', object: @beer
 
 = link_to 'Edit', edit_beer_path(@beer)
 '|

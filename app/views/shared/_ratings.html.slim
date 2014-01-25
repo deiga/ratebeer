@@ -1,0 +1,4 @@
+p
+  'Has #{pluralize(object.ratings.count, 'rating')}
+  - unless object.ratings.count.zero?
+    ', average #{object.average_rating}

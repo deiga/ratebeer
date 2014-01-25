@@ -12,10 +12,7 @@ p
     = link_to beer.name, beer
     '&nbsp;
 
-p
-  'Has #{pluralize(@brewery.ratings.count, 'rating')}
-  - unless @brewery.ratings.count.zero?
-    ', average #{@brewery.average_rating}
+= render 'shared/ratings', object: @brewery
 
 = link_to 'Edit', edit_brewery_path(@brewery)
 '|
