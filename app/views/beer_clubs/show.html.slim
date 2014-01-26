@@ -10,7 +10,8 @@ p
   strong City:
   = @beer_club.city
 
-p Has #{pluralize(@beer_club.members.count, 'member')}:
+p
+  strong Has #{pluralize(@beer_club.members.count, 'member')}:
 ul
   - @beer_club.members.each do |u|
     li = link_to u.username, u

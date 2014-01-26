@@ -1,7 +1,14 @@
-p#notice = notice
-
 h1 Sign in
 
+p#notice = notice
+
 = form_tag sessions_path do
-  = text_field_tag :username, params[:username]
+  .field
+    = label_tag :username
+    = text_field_tag :username, params[:username]
+  .field
+    = label_tag :password
+    = password_field_tag :password, params[:password]
+
+
   = submit_tag "Log in"

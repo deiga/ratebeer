@@ -53,6 +53,7 @@ group :development do
 end
 
 gem "slim-rails"
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'therubyracer', platforms: :ruby # or any other runtime
 gem 'less-rails'
