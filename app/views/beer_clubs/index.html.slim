@@ -1,0 +1,23 @@
+h1 Listing Beer clubs
+
+table
+  tr
+    th Name
+    th Founded
+    th City
+    th
+    th
+    th
+
+  - @beer_clubs.each do |beer_club|
+    tr
+      td = beer_club.name
+      td = beer_club.founded
+      td = beer_club.city
+      td = link_to 'Show', beer_club
+      td = link_to 'Edit', edit_beer_club_path(beer_club)
+      td = link_to 'Destroy', beer_club, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Beer club', new_beer_club_path

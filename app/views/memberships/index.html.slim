@@ -1,0 +1,21 @@
+h1 Listing memberships
+
+table
+  tr
+    th Beer club
+    th User
+    th
+    th
+    th
+
+  - @memberships.each do |membership|
+    tr
+      td = membership.beer_club_id
+      td = membership.user_id
+      td = link_to 'Show', membership
+      td = link_to 'Edit', edit_membership_path(membership)
+      td = link_to 'Destroy', membership, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Membership', new_membership_path

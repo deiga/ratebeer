@@ -1,0 +1,20 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @beer_club.name
+p
+  strong Founded:
+  = @beer_club.founded
+p
+  strong City:
+  = @beer_club.city
+
+p Has #{pluralize(@beer_club.members.count, 'member')}:
+ul
+  - @beer_club.members.each do |u|
+    li = link_to u.username, u
+
+= link_to 'Edit', edit_beer_club_path(@beer_club)
+'|
+= link_to 'Back', beer_clubs_path

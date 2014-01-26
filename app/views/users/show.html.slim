@@ -13,6 +13,11 @@ ul
       '
       = link_to 'delete', r, data: {confirm: 'Are you sure?'}, method: :delete
 
+p Belongs to #{pluralize(@user.beer_clubs.count, 'club')}
+ul
+  - @user.beer_clubs.each do |bc|
+    li = link_to bc.name, bc
+
 = link_to 'Edit', edit_user_path(@user)
 '|
 = link_to 'Back', users_path
