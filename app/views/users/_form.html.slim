@@ -6,13 +6,22 @@
         - @user.errors.full_messages.each do |message|
           li = message
 
+  - if @user.new_record?
+    .field
+      = f.label :username
+      = f.text_field :username
   .field
-    = f.label :username
-    = f.text_field :username
-  .field
-    = f.label :password
+    - unless @user.new_record?
+      = f.label :password, 'New password'
+    - else
+      = f.label :password
     = f.password_field :password
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation
-  .actions = f.submit 'Save'
+  .actions
+    - unless @user.new_record?
+      = f.submit 'Update user'
+    - else
+      = f.submit 'Save'
+
