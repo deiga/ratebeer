@@ -6,6 +6,6 @@ ul
     li
       = rating
       '
-      = link_to 'delete', rating, data: {confirm: 'Are you sure?'}, method: :delete
+      = link_to current_user.username, current_user
 
 = link_to 'New Rating', new_rating_path
