@@ -12,8 +12,7 @@ class RatingsController < ApplicationController
     @rating = Rating.new create_params
 
     if @rating.save
-      current_user.ratings << rating
-      session[:last_rating] = "#{rating.beer} #{rating.score} points"
+      current_user.ratings << @rating
       redirect_to current_user
     else
       @beers = Beer.all

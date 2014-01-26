@@ -30,9 +30,5 @@ html
         = link_to 'signin', signin_path
         '
         = link_to 'signup', signup_path
-    - if session[:last_rating].nil?
-      p no ratings given
-    - else
-      p previous rating: #{session[:last_rating]}
 
     == yield
