@@ -50,6 +50,7 @@ group :development do
   gem 'pry-rails'
   gem 'pry-plus'
   gem 'pry-byebug'
+  gem 'guard-rspec'
 end
 
 gem "slim-rails"
