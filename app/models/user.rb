@@ -15,4 +15,11 @@ class User < ActiveRecord::Base
     return nil if ratings.empty?
     ratings.order(score: :desc).limit(1).first.beer
   end
+
+  def favorite_style
+    return nil if ratings.empty?
+    styles = {}
+    ratings.chunk { |r| r.beer.style }.each { |x|  styles[x[0]] = x[1].inject(0) {|sum, rating| sum += rating.score }}
+    styles.max_by { |x| x[1] }[0]
+  end
 end
