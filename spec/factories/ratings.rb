@@ -2,7 +2,10 @@
 
 FactoryGirl.define do
   factory :rating do
-    score 1
-    beer_id 1
+    score 10
+  end
+
+  factory :rating2, class: Rating do
+    score 20
   end
 end
