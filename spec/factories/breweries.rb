@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :brewery do
-    name "MyString"
-    year ""
+    name "anonymous"
+    year 1900
   end
 end

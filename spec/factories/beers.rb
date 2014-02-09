@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :beer do
-    name "MyString"
-    style "MyString"
-    brewery_id 1
+    name "anonymous"
+    brewery
+    style "Lager"
   end
 end

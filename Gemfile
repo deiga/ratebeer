@@ -61,12 +61,9 @@ gem 'less-rails'
 gem 'autoprefixer-rails'
 gem 'semantic-ui-rails'
 
-group :test do
+group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-end
-
-group :development, :test do
   gem 'sqlite3'
 end
 
