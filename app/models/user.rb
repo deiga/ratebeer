@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   def favorite_style
     return nil if ratings.empty?
     styles = {}
-    ratings.chunk { |r| r.beer.style }.each { |x|  styles[x[0]] = x[1].inject(0) {|sum, rating| sum += rating.score }}
+    ratings.chunk { |r| r.beer.style }.each { |x|  styles[x[0]] = x[1].inject(0) {|sum, rating| sum += rating.score }/x[1].count}
     styles.max_by { |x| x[1] }[0]
   end
 end

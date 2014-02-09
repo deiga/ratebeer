@@ -95,6 +95,8 @@ describe User do
     it "is the one with highest rating if several rated" do
       create_beers_with_ratings(10, 20, 15, 7, 9, user)
       best = create_beer_with_rating_and_style(25, user, 'IPA')
+
+      expect(user.favorite_style).to eq(best.style)
     end
   end
 
