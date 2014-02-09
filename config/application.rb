@@ -31,5 +31,7 @@ module Ratebeer
       g.helper_specs false
     end
 
+    I18n.enforce_available_locales = true
+
   end
 end
