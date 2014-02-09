@@ -11,7 +11,9 @@ class RatingsController < ApplicationController
   def create
     @rating = Rating.new create_params
 
-    if @rating.save
+    if current_user.nil?
+      redirect_to signin_path, notice: 'you should be signed in'
+    elsif @rating.save
       current_user.ratings << @rating
       redirect_to current_user
     else
