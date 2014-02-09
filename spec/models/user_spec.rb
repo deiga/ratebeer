@@ -33,4 +33,23 @@ describe User do
       expect(user.average_rating).to eq(15.0)
     end
   end
+
+  describe "with a too short password" do
+    let(:user){ User.create username:"Pekka", password:"Secr", password_confirmation:"Secr" }
+
+    it "is not saved" do
+      expect(user).not_to be_valid
+      expect(User.count).to eq(0)
+    end
+  end
+
+  describe "with an password in wrong format" do
+    let(:user){ User.create username:"Pekka", password:"secret1", password_confirmation:"secret1" }
+
+    it "is not saved" do
+      expect(user).not_to be_valid
+      expect(User.count).to eq(0)
+    end
+  end
+
 end
