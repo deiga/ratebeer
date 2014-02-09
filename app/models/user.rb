@@ -18,8 +18,26 @@ class User < ActiveRecord::Base
 
   def favorite_style
     return nil if ratings.empty?
-    styles = {}
-    ratings.chunk { |r| r.beer.style }.each { |x|  styles[x[0]] = x[1].inject(0) {|sum, rating| sum += rating.score }/x[1].count}
-    styles.max_by { |x| x[1] }[0]
+    group = ratings.group_by { |r| r.beer.style }
+    get_favorite_group_by_rating_average(group)
+  end
+
+  def favorite_brewery
+    return nil if ratings.empty?
+    group = ratings.group_by { |r| r.beer.brewery }
+    get_favorite_group_by_rating_average(group)
+  end
+
+  private
+  def get_favorite_group_by_rating_average(group)
+    group.each { |k, ary|  group[k] = rating_average(ary) }.max_by { |label, score| score }[0]
+  end
+
+  def sum_rating(ary)
+    ary.inject(0) {|sum, rating| sum += rating.score }
+  end
+
+  def rating_average(ary)
+    sum_rating(ary)/ary.count
   end
 end
