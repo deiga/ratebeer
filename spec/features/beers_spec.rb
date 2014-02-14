@@ -3,6 +3,8 @@ require 'spec_helper'
 describe "Beer" do
   before :each do
     FactoryGirl.create :beer
+    FactoryGirl.create :user
+    sign_in(username:"Pekka", password:"Foobar1")
   end
 
 

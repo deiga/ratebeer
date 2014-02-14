@@ -14,11 +14,12 @@ table
       td = link_to beer.name, beer
       td = beer.style
       td = link_to beer.brewery.name, beer.brewery
-      td = link_to 'Edit', edit_beer_path(beer)
-      td = link_to 'Destroy', beer, data: {:confirm => 'Are you sure?'}, :method => :delete
+      td = link_to 'Edit', edit_beer_path(beer) if current_user
+      td = link_to 'Destroy', beer, data: {:confirm => 'Are you sure?'}, :method => :delete if current_user
 
 br
 
-= link_to 'New Beer', new_beer_path
-'|
+- if current_user
+  = link_to 'New Beer', new_beer_path
+  ' |
 = link_to 'List of breweries', breweries_path
