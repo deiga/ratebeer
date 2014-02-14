@@ -50,78 +50,78 @@ describe User do
     end
   end
 
-  describe "favorite beer" do
+  describe "favourite beer" do
     let(:user){FactoryGirl.create(:user) }
 
     it "has method for determining one" do
-      user.should respond_to :favorite_beer
+      user.should respond_to :favourite_beer
     end
 
     it "without ratings does not have one" do
-      expect(user.favorite_beer).to eq(nil)
+      expect(user.favourite_beer).to eq(nil)
     end
 
     it "is the only rated if only one rating" do
       beer = create_beer_with_rating(10, user)
 
-      expect(user.favorite_beer).to eq(beer)
+      expect(user.favourite_beer).to eq(beer)
     end
 
     it "is the one with highest rating if several rated" do
       create_beers_with_ratings(10, 20, 15, 7, 9, user)
       best = create_beer_with_rating(25, user)
 
-      expect(user.favorite_beer).to eq(best)
+      expect(user.favourite_beer).to eq(best)
     end
   end
 
-  describe "favorite style" do
+  describe "favourite style" do
     let(:user){FactoryGirl.create(:user) }
 
     it "has method for determining one" do
-      user.should respond_to :favorite_style
+      user.should respond_to :favourite_style
     end
 
     it "without ratings does not have one" do
-      expect(user.favorite_style).to eq(nil)
+      expect(user.favourite_style).to eq(nil)
     end
 
     it "is the only rated if only one rating" do
       beer = create_beer_with_rating(10, user)
 
-      expect(user.favorite_style).to eq(beer.style)
+      expect(user.favourite_style).to eq(beer.style)
     end
 
     it "is the one with highest rating if several rated" do
       create_beers_with_ratings(10, 20, 15, 7, 9, user)
       best = create_beer_with_rating_and_style(25, user, 'IPA')
 
-      expect(user.favorite_style).to eq(best.style)
+      expect(user.favourite_style).to eq(best.style)
     end
   end
 
-  describe "favorite brewery" do
+  describe "favourite brewery" do
     let(:user){FactoryGirl.create(:user) }
 
     it "has method for determining one" do
-      user.should respond_to :favorite_brewery
+      user.should respond_to :favourite_brewery
     end
 
     it "without ratings does not have one" do
-      expect(user.favorite_brewery).to eq(nil)
+      expect(user.favourite_brewery).to eq(nil)
     end
 
     it "is the only rated if only one rating" do
       beer = create_beer_with_rating(10, user)
 
-      expect(user.favorite_brewery).to eq(beer.brewery)
+      expect(user.favourite_brewery).to eq(beer.brewery)
     end
 
     it "is the one with highest rating if several rated" do
       create_beers_with_ratings(10, 20, 15, 7, 9, user)
       best = create_beer_with_rating_and_brewery(25, user, name:'BrewDog', year:1999)
 
-      expect(user.favorite_brewery).to eq(best.brewery)
+      expect(user.favourite_brewery).to eq(best.brewery)
     end
   end
 

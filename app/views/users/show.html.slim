@@ -2,6 +2,11 @@ p#notice = notice
 
 h2 #{@user.username}
 
+- if @user.favourite_style
+  p Favourite style: #{@user.favourite_style}
+- if @user.favourite_brewery
+  p Favourite brewery: #{@user.favourite_brewery.name}
+
 = render 'shared/ratings', object: @user
 
 p Belongs to #{pluralize(@user.beer_clubs.count, 'club')}

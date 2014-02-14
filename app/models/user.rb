@@ -11,25 +11,25 @@ class User < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
 
-  def favorite_beer
+  def favourite_beer
     return nil if ratings.empty?
     ratings.order(score: :desc).limit(1).first.beer
   end
 
-  def favorite_style
+  def favourite_style
     return nil if ratings.empty?
     group = ratings.group_by { |r| r.beer.style }
-    get_favorite_group_by_rating_average(group)
+    get_favourite_group_by_rating_average(group)
   end
 
-  def favorite_brewery
+  def favourite_brewery
     return nil if ratings.empty?
     group = ratings.group_by { |r| r.beer.brewery }
-    get_favorite_group_by_rating_average(group)
+    get_favourite_group_by_rating_average(group)
   end
 
   private
-  def get_favorite_group_by_rating_average(group)
+  def get_favourite_group_by_rating_average(group)
     group.each { |k, ary|  group[k] = rating_average(ary) }.max_by { |label, score| score }[0]
   end
 
