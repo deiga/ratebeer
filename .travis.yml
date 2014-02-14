@@ -1,10 +1,16 @@
 language: ruby
-
 rvm:
- - 2.0.0
-
+- 2.0.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: rk2wljCqWUD7kx4wfUQZHbCo5EW3rv/fS4xhMK03mcMxs0e6SQf6+tmyC+YsxwBlkFDsxSlzFkRPFDnOqkBfDwkih5+fiFG3Rm4Omu7YnqK/vn9SupB/rdZcKbtdB+1YRwCQiFek9r1SC/OjrtddNDk4c3keXzdCxIVK5Xp+GRw=
+  app: glacial-coast-3420
+  run: "rake db:migrate"
+  on:
+    repo: deiga/ratebeer
