@@ -14,5 +14,5 @@
     = f.select :style, options_for_select(@styles)
   .field
     = f.label :brewery_id
-    = f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name, selected: @rating.beer_id)
+    = f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name)
   .actions = f.submit 'Save'

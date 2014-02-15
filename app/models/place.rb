@@ -8,7 +8,7 @@ class Place
   end
 
   def coordinates
-    Rails.cache.fetch([self, 'coords'], expires_in: 2.weeks.from_now) { Geocoding.coordinates_by_street([street,city,country].compact.join(',')) }
+    Rails.cache.fetch([self, 'coords'], expires_in: 2.weeks.from_now) { Geocoding.coordinates_by_street(address) }
   end
 
   def lat
@@ -17,5 +17,9 @@ class Place
 
   def lon
     coordinates['lng']
+  end
+
+  def address
+    [street,city,country].compact.join(',')
   end
 end

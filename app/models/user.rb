@@ -17,24 +17,26 @@ class User < ActiveRecord::Base
   end
 
   def favourite_style
-    return nil if ratings.empty?
-    group = ratings.group_by { |r| r.beer.style }
-    get_favourite_group_by_rating_average(group)
+    favourite :style
   end
 
   def favourite_brewery
+    favourite :brewery
+  end
+
+  def favourite(category)
     return nil if ratings.empty?
-    group = ratings.group_by { |r| r.beer.brewery }
-    get_favourite_group_by_rating_average(group)
+    get_favourite_group_by_rating_average(category)
   end
 
   private
-  def get_favourite_group_by_rating_average(group)
-    group.each { |k, ary|  group[k] = rating_average(ary) }.max_by { |label, score| score }[0]
+  def get_favourite_group_by_rating_average(category)
+    group = ratings.group_by { |r| r.beer.send(category) }
+    group.each { |k, ary|  group[k] = rating_average(ary) }.max_by { |label, score| score }.first
   end
 
   def sum_rating(ary)
-    ary.inject(0) {|sum, rating| sum += rating.score }
+    ary.inject(0.0) {|sum, rating| sum += rating.score }
   end
 
   def rating_average(ary)
