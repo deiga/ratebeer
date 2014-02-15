@@ -7,28 +7,27 @@ html
     = csrf_meta_tags
 
   body
-    .navibar
-      = link_to 'breweries', breweries_path
-      '
-      = link_to 'beers', beers_path
-      '
-      = link_to 'ratings', ratings_path
-      '
-      = link_to 'users', users_path
-      '
-      = link_to 'Beer Clubs', beer_clubs_path
-      ' |
-      - unless current_user.nil?
-        = link_to current_user.username, current_user
-        '
-        = link_to 'rate a beer', new_rating_path
-        '
-        = link_to 'join a club', new_membership_path
-        '
-        = link_to 'signout', signout_path, method: :delete
-      - else
-        = link_to 'signin', signin_path
-        '
-        = link_to 'signup', signup_path
+    nav.ui.menu.navibar
+      h3.header.item Ratebeer
+      = link_to 'Breweries', breweries_path, class: 'item'
+      = link_to 'Beers', beers_path, class: 'item'
+      = link_to 'Ratings', ratings_path, class: 'item'
+      = link_to 'Users', users_path, class: 'item'
+      = link_to 'Beer Clubs', beer_clubs_path, class: 'item'
+      = link_to 'Places', places_path, class: 'item'
+      .right.menu
+        - unless current_user.nil?
+          = link_to current_user, class: 'item' do
+            i.icon.user
+            = current_user.username
+          = link_to 'Rate a beer', new_rating_path, class: 'item'
+          = link_to 'Join a club', new_membership_path, class: 'item'
+          .item
+            = link_to 'Signout', signout_path, method: :delete, class: 'ui red button'
+        - else
+          .item
+            = link_to 'Signin', signin_path, class: 'ui button'
+          .item
+            = link_to 'Signup', signup_path, class: 'ui blue button'
 
     == yield
