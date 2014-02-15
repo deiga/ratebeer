@@ -16,7 +16,7 @@ ul
   - @beer_club.members.each do |u|
     li = link_to u.username, u
 
-- if current_user
+- if current_user and not @beer_club.members.include? current_user
   = form_for @membership do |f|
     = f.hidden_field :beer_club_id
     .action
