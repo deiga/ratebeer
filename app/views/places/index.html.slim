@@ -16,4 +16,7 @@ p.notice #{notice}
     - @places.each do |p|
       tr
         - Place.rendered_fields.each do |f|
-          td = p.send f
+          - if f == :name
+            td = link_to p.send(f), place_path(p.id)
+          - else
+            td = p.send f
