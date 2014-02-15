@@ -15,7 +15,7 @@ deploy:
     repo: deiga/ratebeer
 env:
   global:
-  - secure: Tzkk4/hhDvjjIYShu/9/nDmursBI/lXjMSXsZQ4I/8x/q9w1HLJb0Wq3GFeGlz7c5m6Vfvai1nHC9i14rs9XpIPbbbdXs7KOUdbhK19IHVcGo+Le0DaeCMewTzfsZ7YRj2m9bRxuBxGURG1M/EvalugRfEyj7sAPoUEAZVhGLhE=
-  - secure: RZBAmPYvJl+qSGsTSXdlCW0DQP0D8ur9yK3g+fi0VIBk5icDS92SxfCImBUoK62VeuIgegI+xUW9O8XsAozVrPvIg/K+regYFdvglqv4M/fzEQuqbthzzEXKHNDAIOlaKjddjgas/q+yUqLZ7VAbnnjRuk8fWv8cT7eZBwbZKwg=
-  - secure: pR8NoSy0KaMbkeXzU+r9NJa6F1JlRvABFYqPTKXzhsR8J0n8P4M54HhuKKr0SNT1BF8qGVF1iIwcETgPl/fGPOrfZLGKdAjC2hw8tVHglil5RVE/vL5+iHFzgy/ymGd2YudG9s014d9J6BaL1pjrJQUjHmlSp7F8GXD2HxzUqBE=
-  - secure: YKBggtQAKKeEUYvnkp+Fqb1L+IrUrPVAl8svj0R2+F/rp1uUohqCqffaNul6hMR8rujLDcJeBjq4X3bnGtczJU+hbFQoSgJvG4OfcAJZXZmmVyCRHpPtm7omLlhN9udjz0b4Jt0JTaclysKvLOiRuIB4xhlAE5IXVLtQRHSMlOA=
+  - secure: oOlOlfz1b6WcCwzgWJVhwOqSXVFa/662J+Yo25EcI14j00sRMdzNvp+8dTF+8R1cvLWYJSzmsyLPEgogpI/kP15bslN2Fj47JLHHcSYsDLv8NWg4m9CvsBLPFt5qH59/+yot2i/uGERh6JIukOQStI4dBU/Htp+64tdNyAf2PIw=
+  - secure: aTE2F9YhmXyP7Vtx8OCdisaBRgY9Y+WlnmexNQzV/QXyiEFt4Khc7tuWOLL2B/mvmibhomiFdVjQvj6u0sGRBRbE7sXRW9jy4XFazjrXstdmVA/Tcg3RpBjBPF35ZW065Q65S3gJvb4+0CF7DJ+5wtvPWozHIc9b3MEsUnk+qdY=
+  - secure: VqXuI6dQzfXztw4OKwDBkI/Sbp0U/5rL589N6ACgJ05rR6lg3w881OtUXuDOxo/2EtMgQqZB6j1Mb4QV5nIDwUlAfNo0RWKU6ZHPALPulV2JQEKIK00Sb9Jgk7EcUnvP1SfaMvCJDVABGiMoGc0ImJh1QfOnVxkyvTtI4cxIMMo=
+  - secure: fn0kP6gOm6CV2XBuCorDdDjiziYylEvtpsue7ZLaCYZiMvuam4rBHD1tj7o3Nk7lQjt5+CNY6oeTpM+0txPW4+8QWxreEHsLaedxy1ZdyrvFC+Ex1goI+Yml6HBJiAR4tPo0SCq5Z4ZmX+OK714j0T/esL37YzcFUho+V+3iKFU=
