@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Places" do
   it "if one is returned by the API, it is shown at the page" do
     BeermappingApi.stub(:places_in).with("kumpula").and_return(
-        [ Place.new(:name => "Oljenkorsi") ]
+        [ Place.new(id: 1, name: "Oljenkorsi") ]
     )
 
     visit places_path
@@ -25,7 +25,7 @@ describe "Places" do
 
   it "should show all returned places" do
     BeermappingApi.stub(:places_in).with("pasila").and_return(
-        [ Place.new(name: "Pub East-West"), Place.new(name: 'Olutravintola Nurkka') ]
+        [ Place.new(id: 1, name: "Pub East-West"), Place.new(id: 2, name: 'Olutravintola Nurkka') ]
     )
 
     visit places_path
