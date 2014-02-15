@@ -1,16 +1,27 @@
 p#notice = notice
 
-p
-  strong Name:
-  = @beer.name
+h2 = @beer.name
 p
   strong Style:
+  '
   = @beer.style
 p
   strong Brewery:
-  = @beer.brewery_id
+  '
+  = @beer.brewery.name
 
 = render 'shared/ratings', object: @beer
+
+- if current_user
+  h4 Give rating:
+
+  = form_for @rating do |f|
+    = f.hidden_field :beer_id
+    .field
+      = f.label :score
+      = f.number_field :score
+    .action
+      = f.submit 'Rate'
 
 = link_to 'Edit', edit_beer_path(@beer)
 '|
