@@ -10,6 +10,10 @@ deploy:
   api_key:
     secure: rk2wljCqWUD7kx4wfUQZHbCo5EW3rv/fS4xhMK03mcMxs0e6SQf6+tmyC+YsxwBlkFDsxSlzFkRPFDnOqkBfDwkih5+fiFG3Rm4Omu7YnqK/vn9SupB/rdZcKbtdB+1YRwCQiFek9r1SC/OjrtddNDk4c3keXzdCxIVK5Xp+GRw=
   app: glacial-coast-3420
-  run: "rake db:migrate"
+  run: rake db:migrate
   on:
     repo: deiga/ratebeer
+env:
+  global:
+  - secure: vYLzg+uZLxY5gvFCv5u2yyBVjOzNulSA3mhLJtM+7OEpjI1iyDkypXJ6G5Hnk+hvEB5nMGGnhpDZHXkLmHi0RspLZu7QFC+CK4txnAovHD0xm8+ocmqP0rBiyQpYnd5oy512PkwKSNMZwltr85H/BPRHKQnbDOnXvjRPKJ21Zgs=
+  - secure: MKQtEQNqunje29GreXnNZbPByn/agsM92wDKECNzrrlSrAC0lcIczXXyqmb2jGf7U3nT4KODtOHW3BiN7KVzNAr831HrZ071VEwHw11JC7KF+uZAHBbELdT33Xntk5xpHKBmldHkeVX/I9HC65oJC6OEHZ404zpEArv2DfVOjBI=
