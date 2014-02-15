@@ -66,6 +66,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'sqlite3'
+  gem 'guard-migrate'
 end
 
 group :test do
@@ -82,3 +83,4 @@ group :production do
 end
 
 gem 'httparty'
+gem 'figaro'

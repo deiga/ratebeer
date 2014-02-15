@@ -1,5 +1,13 @@
 class BeermappingApi
+
   def self.places_in(city)
+    city = city.downcase
+    Rails.cache.fetch(city, expires_in: 1.minute.from_now) { fetch_places_in(city) }
+  end
+
+  private
+
+    def self.fetch_places_in(city)
     response = HTTParty.get "#{url}#{CGI::escape(city)}"
     places = response.parsed_response["bmp_locations"]["location"]
 
@@ -11,11 +19,11 @@ class BeermappingApi
     end
   end
 
-  def self.key
-    'f47685755b310c3061c86c7417d92d65'
-  end
+    def self.key
+      Figaro.env.beermapping_apikey
+    end
 
-  def self.url
-    "http://beermapping.com/webservice/loccity/#{key}/"
-  end
+    def self.url
+      Figaro.env.beermapping_url % {key: key}
+    end
 end
