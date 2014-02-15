@@ -12,7 +12,7 @@ table
   - @beers.each do |beer|
     tr
       td = link_to beer.name, beer
-      td = beer.style
+      td = beer.style.name
       td = link_to beer.brewery.name, beer.brewery
       td = link_to 'Edit', edit_beer_path(beer) if current_user
       td = link_to 'Destroy', beer, data: {:confirm => 'Are you sure?'}, :method => :delete if current_user
