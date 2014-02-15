@@ -51,6 +51,7 @@ group :development do
   gem 'pry-plus'
   gem 'pry-byebug'
   gem 'guard-rspec'
+  gem 'guard-bundler'
 end
 
 gem "slim-rails"
@@ -72,6 +73,7 @@ group :test do
   gem 'launchy'
   gem 'simplecov', require: false
   gem 'coveralls', require: false
+  gem 'webmock'
 end
 
 group :production do
