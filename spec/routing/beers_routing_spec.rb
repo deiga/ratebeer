@@ -4,31 +4,31 @@ describe BeersController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/beers").should route_to("beers#index")
+      expect(get("/beers")).to route_to("beers#index")
     end
 
     it "routes to #new" do
-      get("/beers/new").should route_to("beers#new")
+      expect(get("/beers/new")).to route_to("beers#new")
     end
 
     it "routes to #show" do
-      get("/beers/1").should route_to("beers#show", :id => "1")
+      expect(get("/beers/1")).to route_to("beers#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/beers/1/edit").should route_to("beers#edit", :id => "1")
+      expect(get("/beers/1/edit")).to route_to("beers#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/beers").should route_to("beers#create")
+      expect(post("/beers")).to route_to("beers#create")
     end
 
     it "routes to #update" do
-      put("/beers/1").should route_to("beers#update", :id => "1")
+      expect(put("/beers/1")).to route_to("beers#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/beers/1").should route_to("beers#destroy", :id => "1")
+      expect(delete("/beers/1")).to route_to("beers#destroy", :id => "1")
     end
 
   end

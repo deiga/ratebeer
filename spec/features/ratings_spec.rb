@@ -38,13 +38,13 @@ describe "Rating" do
       it "number of ratings on list page is correct" do
         visit ratings_path
 
-        page.should have_content "Number of ratings: #{Rating.count}"
+        expect(page).to have_content "Number of ratings: #{Rating.count}"
       end
 
       it "number of ratings on users page is correct" do
         visit user_path(user)
 
-        page.should have_content "Has #{user.ratings.count} rating"
+        expect(page).to have_content "Has #{user.ratings.count} rating"
       end
     end
 

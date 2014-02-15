@@ -48,11 +48,11 @@ describe "User" do
     end
 
     it "displays favourite style" do
-      page.should have_content 'Favourite style'
+      expect(page).to have_content 'Favourite style'
     end
 
     it "displays favourite brewery" do
-      page.should have_content 'Favourite brewery'
+      expect(page).to have_content 'Favourite brewery'
     end
   end
 end

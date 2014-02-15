@@ -5,7 +5,7 @@ describe User do
   it "has the username set correctly" do
     user = User.new username:"Pekka"
 
-    user.username.should == "Pekka"
+    expect(user.username).to eq("Pekka")
   end
 
   it "is not saved without a password" do
@@ -54,7 +54,7 @@ describe User do
     let(:user){FactoryGirl.create(:user) }
 
     it "has method for determining one" do
-      user.should respond_to :favourite_beer
+      expect(user).to respond_to :favourite_beer
     end
 
     it "without ratings does not have one" do
@@ -79,7 +79,7 @@ describe User do
     let(:user){FactoryGirl.create(:user) }
 
     it "has method for determining one" do
-      user.should respond_to :favourite_style
+      expect(user).to respond_to :favourite_style
     end
 
     it "without ratings does not have one" do
@@ -104,7 +104,7 @@ describe User do
     let(:user){FactoryGirl.create(:user) }
 
     it "has method for determining one" do
-      user.should respond_to :favourite_brewery
+      expect(user).to respond_to :favourite_brewery
     end
 
     it "without ratings does not have one" do
@@ -129,20 +129,23 @@ end
 
 def create_beer_with_rating_and_brewery(score, user, brewery)
   beer = FactoryGirl.create(:beer, brewery: FactoryGirl.create(:brewery, brewery))
-  FactoryGirl.create(:rating, score:score, beer:beer, user:user)
-  beer
+  beer.tap do
+    FactoryGirl.create(:rating, score:score, beer:beer, user:user)
+  end
 end
 
 def create_beer_with_rating(score, user)
   beer = FactoryGirl.create(:beer)
-  FactoryGirl.create(:rating, score:score, beer:beer, user:user)
-  beer
+  beer.tap do
+    FactoryGirl.create(:rating, score:score, beer:beer, user:user)
+  end
 end
 
 def create_beer_with_rating_and_style(score, user, style)
   beer = FactoryGirl.create(:beer, style: style)
-  FactoryGirl.create(:rating, score:score, beer:beer, user:user)
-  beer
+  beer.tap do
+    FactoryGirl.create(:rating, score:score, beer:beer, user:user)
+  end
 end
 
 def create_beers_with_ratings(*scores, user)
