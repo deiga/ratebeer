@@ -15,5 +15,7 @@ deploy:
     repo: deiga/ratebeer
 env:
   global:
-  - secure: vYLzg+uZLxY5gvFCv5u2yyBVjOzNulSA3mhLJtM+7OEpjI1iyDkypXJ6G5Hnk+hvEB5nMGGnhpDZHXkLmHi0RspLZu7QFC+CK4txnAovHD0xm8+ocmqP0rBiyQpYnd5oy512PkwKSNMZwltr85H/BPRHKQnbDOnXvjRPKJ21Zgs=
-  - secure: MKQtEQNqunje29GreXnNZbPByn/agsM92wDKECNzrrlSrAC0lcIczXXyqmb2jGf7U3nT4KODtOHW3BiN7KVzNAr831HrZ071VEwHw11JC7KF+uZAHBbELdT33Xntk5xpHKBmldHkeVX/I9HC65oJC6OEHZ404zpEArv2DfVOjBI=
+  - secure: Tzkk4/hhDvjjIYShu/9/nDmursBI/lXjMSXsZQ4I/8x/q9w1HLJb0Wq3GFeGlz7c5m6Vfvai1nHC9i14rs9XpIPbbbdXs7KOUdbhK19IHVcGo+Le0DaeCMewTzfsZ7YRj2m9bRxuBxGURG1M/EvalugRfEyj7sAPoUEAZVhGLhE=
+  - secure: RZBAmPYvJl+qSGsTSXdlCW0DQP0D8ur9yK3g+fi0VIBk5icDS92SxfCImBUoK62VeuIgegI+xUW9O8XsAozVrPvIg/K+regYFdvglqv4M/fzEQuqbthzzEXKHNDAIOlaKjddjgas/q+yUqLZ7VAbnnjRuk8fWv8cT7eZBwbZKwg=
+  - secure: pR8NoSy0KaMbkeXzU+r9NJa6F1JlRvABFYqPTKXzhsR8J0n8P4M54HhuKKr0SNT1BF8qGVF1iIwcETgPl/fGPOrfZLGKdAjC2hw8tVHglil5RVE/vL5+iHFzgy/ymGd2YudG9s014d9J6BaL1pjrJQUjHmlSp7F8GXD2HxzUqBE=
+  - secure: YKBggtQAKKeEUYvnkp+Fqb1L+IrUrPVAl8svj0R2+F/rp1uUohqCqffaNul6hMR8rujLDcJeBjq4X3bnGtczJU+hbFQoSgJvG4OfcAJZXZmmVyCRHpPtm7omLlhN9udjz0b4Jt0JTaclysKvLOiRuIB4xhlAE5IXVLtQRHSMlOA=
