@@ -3,7 +3,6 @@ class CreateStyles < ActiveRecord::Migration
     create_table :styles do |t|
       t.string :name
       t.text :description
-      t.references :beer, index: true
 
       t.timestamps
     end

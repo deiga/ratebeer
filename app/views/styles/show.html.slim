@@ -1,0 +1,16 @@
+h1 = @style.name
+p = @style.description
+
+strong Beers
+- if @style.beers.present?
+  ul
+    - @style.beers.each do |b|
+      li #{link_to b.name, b} by #{link_to b.brewery.name, b.brewery}
+- else
+  p No beers for this style added yet.
+
+- if current_user
+  = link_to 'Edit', edit_style_path(@style)
+  ' |
+  = link_to 'Destroy', @style, confirm: 'Are you sure?', method: :delete
+
