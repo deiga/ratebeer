@@ -16,6 +16,12 @@ ul
   - @beer_club.members.each do |u|
     li = link_to u.username, u
 
+- if current_user
+  = form_for @membership do |f|
+    = f.hidden_field :beer_club_id
+    .action
+      = f.submit 'Join the club'
+
 = link_to 'Edit', edit_beer_club_path(@beer_club)
 ' |
 = link_to 'Destroy', @beer_club, data: {:confirm => 'Are you sure?'}, :method => :delete
