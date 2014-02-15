@@ -16,7 +16,7 @@ describe User do
   end
 
   describe "with a proper password" do
-    let(:user){ FactoryGirl.create(:user) }
+    let(:user){ create(:user) }
 
     it "is saved" do
       expect(user).to be_valid
@@ -24,8 +24,8 @@ describe User do
     end
 
     it "and with two ratings, has the correct average rating" do
-      user.ratings << FactoryGirl.create(:rating)
-      user.ratings << FactoryGirl.create(:rating2)
+      user.ratings << create(:rating)
+      user.ratings << create(:rating2)
 
       expect(user.ratings.count).to eq(2)
       expect(user.average_rating).to eq(15.0)
@@ -33,7 +33,7 @@ describe User do
   end
 
   describe "with a too short password" do
-    let(:user){ FactoryGirl.build(:user,password:"Secr", password_confirmation:"Secr") }
+    let(:user){ build(:user,password:"Secr", password_confirmation:"Secr") }
 
     it "is not saved" do
       expect(user).not_to be_valid
@@ -42,7 +42,7 @@ describe User do
   end
 
   describe "with an password in wrong format" do
-    let(:user){ FactoryGirl.build(:user,password:"secret1", password_confirmation:"secret1") }
+    let(:user){ build(:user,password:"secret1", password_confirmation:"secret1") }
 
     it "is not saved" do
       expect(user).not_to be_valid
@@ -51,7 +51,7 @@ describe User do
   end
 
   describe "favourite beer" do
-    let(:user){FactoryGirl.create(:user) }
+    let(:user){create(:user) }
 
     it "has method for determining one" do
       expect(user).to respond_to :favourite_beer
@@ -76,7 +76,7 @@ describe User do
   end
 
   describe "favourite style" do
-    let(:user){FactoryGirl.create(:user) }
+    let(:user){create(:user) }
 
     it "has method for determining one" do
       expect(user).to respond_to :favourite_style
@@ -101,7 +101,7 @@ describe User do
   end
 
   describe "favourite brewery" do
-    let(:user){FactoryGirl.create(:user) }
+    let(:user){create(:user) }
 
     it "has method for determining one" do
       expect(user).to respond_to :favourite_brewery
@@ -128,23 +128,24 @@ describe User do
 end
 
 def create_beer_with_rating_and_brewery(score, user, brewery)
-  beer = FactoryGirl.create(:beer, brewery: FactoryGirl.create(:brewery, brewery))
+  beer = create(:beer, brewery: create(:brewery, brewery))
   beer.tap do
-    FactoryGirl.create(:rating, score:score, beer:beer, user:user)
+    create(:rating, score:score, beer:beer, user:user)
   end
 end
 
 def create_beer_with_rating(score, user)
-  beer = FactoryGirl.create(:beer)
+  beer = create(:beer)
   beer.tap do
-    FactoryGirl.create(:rating, score:score, beer:beer, user:user)
+    create(:rating, score:score, beer:beer, user:user)
   end
 end
 
 def create_beer_with_rating_and_style(score, user, style)
-  beer = FactoryGirl.create(:beer, style: style)
+  s1 = create(:style, name: style)
+  beer = create(:beer, style: s1)
   beer.tap do
-    FactoryGirl.create(:rating, score:score, beer:beer, user:user)
+    create(:rating, score:score, beer:beer, user:user)
   end
 end
 

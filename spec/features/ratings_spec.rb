@@ -2,11 +2,11 @@ require 'spec_helper'
 include OwnTestHelper
 
 describe "Rating" do
-  let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
-  let!(:beer1) { FactoryGirl.create :beer, name:"iso 3", brewery:brewery }
-  let!(:beer2) { FactoryGirl.create :beer, name:"Karhu", brewery:brewery }
-  let!(:user) { FactoryGirl.create :user }
-  let!(:user2) { FactoryGirl.create :user, username: "Arto"}
+  let!(:brewery) { create :brewery, name:"Koff" }
+  let!(:beer1) { create :beer, name:"iso 3", brewery:brewery }
+  let!(:beer2) { create :beer, name:"Karhu", brewery:brewery }
+  let!(:user) { create :user }
+  let!(:user2) { create :user, username: "Arto"}
 
   before :each do
     sign_in(username:"Pekka", password:"Foobar1")
@@ -30,9 +30,9 @@ describe "Rating" do
 
     describe "is listed correctly" do
       before(:each) do
-        FactoryGirl.create :rating, beer: beer1, user: user
-        FactoryGirl.create :rating, beer: beer1, user: user
-        FactoryGirl.create :rating, beer: beer2, user: user
+        create :rating, beer: beer1, user: user
+        create :rating, beer: beer1, user: user
+        create :rating, beer: beer2, user: user
       end
 
       it "number of ratings on list page is correct" do
@@ -51,7 +51,7 @@ describe "Rating" do
     describe "interactions are commited to DB" do
 
       it "User clicks on delete removes for DB" do
-        FactoryGirl.create :rating, beer: beer1, user: user
+        create :rating, beer: beer1, user: user
 
         visit user_path(user)
 

@@ -48,4 +48,10 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+    # FactoryGirl.lint
+  end
 end

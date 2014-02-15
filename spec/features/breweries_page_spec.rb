@@ -13,7 +13,7 @@ describe "Breweries page" do
       @breweries = ["Koff", "Karjala", "Schlenkerla"]
       year = 1896
       @breweries.each do |brewery_name|
-        FactoryGirl.create(:brewery, name: brewery_name, year: year += 1)
+        create(:brewery, name: brewery_name, year: year += 1)
       end
 
       visit breweries_path

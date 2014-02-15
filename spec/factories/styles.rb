@@ -2,8 +2,7 @@
 
 FactoryGirl.define do
   factory :style do
-    name "MyString"
+    name "Lager"
     description "MyText"
-    beer nil
   end
 end
