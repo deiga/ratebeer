@@ -6,4 +6,16 @@ class Place
   def self.rendered_fields
     [:id, :name, :status, :street, :city, :zip, :country, :overall ]
   end
+
+  def coordinates
+    Rails.cache.fetch([self, 'coords'], expires_in: 2.weeks.from_now) { Geocoding.coordinates_by_street([street,city,country].compact.join(',')) }
+  end
+
+  def lat
+    coordinates['lat']
+  end
+
+  def lon
+    coordinates['lng']
+  end
 end

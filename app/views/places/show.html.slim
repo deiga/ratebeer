@@ -4,3 +4,12 @@ p
   #{@place.street}
   br
   #{@place.zip} #{@place.city}
+
+div style='width: 800px;'
+  #map style='width: 800px; height: 400px;'
+
+script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"
+javascript:
+  window.lat = #{@place.lat}
+  window.lon = #{@place.lon}
+  window.place_name = '#{@place.name}'
