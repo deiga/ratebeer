@@ -8,7 +8,7 @@ describe "User" do
 
   describe "who has signed up" do
     it "can signin with right credentials" do
-      sign_in(username:"Pekka", password:"Foobar1")
+      sign_in(username:User.first.username, password:"Foobar1")
 
       expect(page).to have_content 'Welcome back!'
       expect(page).to have_content 'Pekka'
@@ -43,7 +43,7 @@ describe "User" do
       create :rating, beer: beer1, user: user
       create :rating, beer: beer2, user: user
 
-      sign_in(username:"Pekka", password:"Foobar1")
+      sign_in(username:User.first.username, password:"Foobar1")
       visit user_path(user)
     end
 

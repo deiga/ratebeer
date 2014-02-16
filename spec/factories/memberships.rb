@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :membership do
-    beer_club_id 1
-    user_id 1
+    beer_club
+    user
   end
 end

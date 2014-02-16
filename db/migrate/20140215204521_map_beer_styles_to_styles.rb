@@ -6,7 +6,7 @@ class MapBeerStylesToStyles < ActiveRecord::Migration
         add_reference :beers, :style, index: true
         Beer.all.each do |b|
           style = Style.find_or_create_by(name: b.old_style)
-          b.style = style
+          b.update_attribute(:style_id, style)
         end
         remove_column :beers, :old_style
       end

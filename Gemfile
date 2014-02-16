@@ -47,12 +47,13 @@ group :development do
   gem 'meta_request' # Binding with RailsPanel in chrome
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-rails'
-  gem 'pry-plus'
-  gem 'pry-byebug'
   gem 'guard-rspec'
   gem 'guard-bundler'
 end
+
+gem 'pry-rails'
+gem 'pry-plus'
+gem 'pry-byebug'
 
 gem "slim-rails"
 gem 'bcrypt-ruby', '~> 3.1.2'
@@ -75,6 +76,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'coveralls', require: false
   gem 'webmock'
+  gem 'database_cleaner'
 end
 
 group :production do
