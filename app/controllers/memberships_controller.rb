@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  before_action :set_membership, only: [:show, :edit, :update, :destroy]
+  before_action :set_membership, only: [:show, :destroy]
 
   # GET /memberships
   # GET /memberships.json
@@ -18,10 +18,6 @@ class MembershipsController < ApplicationController
     @membership = Membership.new
   end
 
-  # GET /memberships/1/edit
-  def edit
-  end
-
   # POST /memberships
   # POST /memberships.json
   def create
@@ -38,12 +34,6 @@ class MembershipsController < ApplicationController
         format.json { render json: @membership.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  # PATCH/PUT /memberships/1
-  # PATCH/PUT /memberships/1.json
-  def update
-    shared_update(@membership, membership_params)
   end
 
   # DELETE /memberships/1
