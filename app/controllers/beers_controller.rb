@@ -1,7 +1,7 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
   before_action :set_form, only: [:new, :edit, :create]
-  before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :ensure_that_signed_in, except: [:index, :show, :list]
 
   # GET /beers
   # GET /beers.json
@@ -52,6 +52,10 @@ class BeersController < ApplicationController
       format.html { redirect_to beers_url }
       format.json { head :no_content }
     end
+  end
+
+  def list
+
   end
 
   private

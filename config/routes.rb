@@ -16,6 +16,8 @@ Ratebeer::Application.routes.draw do
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
 
+  get 'beerlist', to:'beers#list'
+
   root 'breweries#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
