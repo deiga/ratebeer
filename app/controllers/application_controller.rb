@@ -19,10 +19,10 @@ class ApplicationController < ActionController::Base
     def shared_update(object, object_params)
       respond_to do |format|
         if object.update(object_params)
-          format.html { redirect_to object, notice: "#{object.class.model_name.human} club was successfully updated." }
-          format.json { render action: 'show', status: :ok, location: object }
+          format.html { shared_redirect(object, "#{object.class.model_name.human} club was successfully updated.") }
+          format.json { shared_render('show', :ok, object) }
         else
-          format.html { render action: 'edit' }
+          format.html { shared_render 'edit' }
           format.json { render json: object.errors, status: :unprocessable_entity }
         end
       end
@@ -30,13 +30,25 @@ class ApplicationController < ActionController::Base
 
     def shared_create(object, object_path=object)
       respond_to do |format|
-      if object.save
-        format.html { redirect_to object_path, notice: "#{object.class.model_name.human} was successfully created." }
-        format.json { render action: 'show', status: :created, location: object }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: object.errors, status: :unprocessable_entity }
+        if object.save
+          format.html { shared_redirect(object_path, "#{object.class.model_name.human} was successfully created.") }
+          format.json { shared_render('show', :created, object) }
+        else
+          format.html { shared_render 'new' }
+          format.json { render json: object.errors, status: :unprocessable_entity }
+        end
       end
     end
+
+  private
+    def shared_redirect(path, message)
+      redirect_to object_path, notice: message
+    end
+
+    def shared_render(action, status=nil, location=nil)
+      if status && location
+        render action: action, status: status, location: location
+      else
+        render action: action
     end
 end
