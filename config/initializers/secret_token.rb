@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Ratebeer::Application.config.secret_key_base = '49755b8fe8b3e257b2024d49c31baecad6cece5fd5e5a0da5ca9c5cf0ecc57d207a3fff8f58b15cb4e986de99cf183fc77e1e6b848bf32f63a674365a262be23'
+Ratebeer::Application.config.secret_key_base = Figaro.env.secret_key_base

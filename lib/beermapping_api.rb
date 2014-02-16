@@ -12,7 +12,7 @@ class BeermappingApi
   private
 
     def self.fetch_places_in(city)
-      url = Figaro.env.beermapping_city_url % {key: key}
+      url = url('city')
       response = HTTParty.get "#{url}#{CGI::escape(city)}"
       places = response.parsed_response["bmp_locations"]["location"]
 
@@ -29,10 +29,14 @@ class BeermappingApi
     end
 
     def self.fetch_place(id)
-      url = Figaro.env.beermapping_query_url % {key: key}
+      url = url('query')
       response = response = HTTParty.get "#{url}#{id}"
 
       place = response.parsed_response["bmp_locations"]["location"]
       Place.new(place)
+    end
+
+    def self.url(query_type)
+      Figaro.env.beermapping_url % {key: key, query: query_type }
     end
 end

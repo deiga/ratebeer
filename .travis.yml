@@ -1,6 +1,8 @@
 language: ruby
 rvm:
 - 2.0.0
+before_script:
+- export SECRET_KEY_BASE=$(rake secret)
 script:
 - bundle exec rake db:test:prepare
 - bundle exec rspec -fd spec/
@@ -14,7 +16,5 @@ deploy:
     repo: deiga/ratebeer
 env:
   global:
-  - secure: oOlOlfz1b6WcCwzgWJVhwOqSXVFa/662J+Yo25EcI14j00sRMdzNvp+8dTF+8R1cvLWYJSzmsyLPEgogpI/kP15bslN2Fj47JLHHcSYsDLv8NWg4m9CvsBLPFt5qH59/+yot2i/uGERh6JIukOQStI4dBU/Htp+64tdNyAf2PIw=
-  - secure: aTE2F9YhmXyP7Vtx8OCdisaBRgY9Y+WlnmexNQzV/QXyiEFt4Khc7tuWOLL2B/mvmibhomiFdVjQvj6u0sGRBRbE7sXRW9jy4XFazjrXstdmVA/Tcg3RpBjBPF35ZW065Q65S3gJvb4+0CF7DJ+5wtvPWozHIc9b3MEsUnk+qdY=
-  - secure: VqXuI6dQzfXztw4OKwDBkI/Sbp0U/5rL589N6ACgJ05rR6lg3w881OtUXuDOxo/2EtMgQqZB6j1Mb4QV5nIDwUlAfNo0RWKU6ZHPALPulV2JQEKIK00Sb9Jgk7EcUnvP1SfaMvCJDVABGiMoGc0ImJh1QfOnVxkyvTtI4cxIMMo=
-  - secure: fn0kP6gOm6CV2XBuCorDdDjiziYylEvtpsue7ZLaCYZiMvuam4rBHD1tj7o3Nk7lQjt5+CNY6oeTpM+0txPW4+8QWxreEHsLaedxy1ZdyrvFC+Ex1goI+Yml6HBJiAR4tPo0SCq5Z4ZmX+OK714j0T/esL37YzcFUho+V+3iKFU=
+  - secure: LyIqsLUDgA1bMuL5K4+qTw1kuyMmjD3Y0D4WQaFMLnHjiahweXOz48P2p9ICaNlTkbQTSKeXmI48IGZE3XFj3w6bHlzbv5B0LUni2/wMmu9ORArSgBq6SpE2ehsH2+ls4L5x46Wrm+qCf7DzhbR0CjQW5Yp6uLKYrN/UYgG5jWo=
+  - secure: Ly/EAOPIJz6bPVhx+bnHasQi8ZHF6lhtnbJE0SzPStFWIRCuFRWIyyLHMp8L+DqYNBMKAt1eHc17E3iCKhUP5uJqZuSgzhAZ0zkH9pRMoRnZNJRqb2XeC96Z0MyFElL3b3ul66vSCOYLZgJorRQEiV13PVkLH9stl1X89Y4Vutk=
