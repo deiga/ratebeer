@@ -26,16 +26,7 @@ class BreweriesController < ApplicationController
   # POST /breweries.json
   def create
     @brewery = Brewery.new(brewery_params)
-
-    respond_to do |format|
-      if @brewery.save
-        format.html { redirect_to @brewery, notice: 'Brewery was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @brewery }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @brewery.errors, status: :unprocessable_entity }
-      end
-    end
+    shared_create(@brewery, beers_path)
   end
 
   # PATCH/PUT /breweries/1
