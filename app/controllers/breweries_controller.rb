@@ -41,7 +41,7 @@ class BreweriesController < ApplicationController
   # PATCH/PUT /breweries/1
   # PATCH/PUT /breweries/1.json
   def update
-    ControllerHelper.update(@brewery, brewery_params)
+    shared_update(@brewery, brewery_params)
   end
 
   # DELETE /breweries/1

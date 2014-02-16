@@ -43,7 +43,7 @@ class MembershipsController < ApplicationController
   # PATCH/PUT /memberships/1
   # PATCH/PUT /memberships/1.json
   def update
-    ControllerHelper.update(@membership, membership_params)
+    shared_update(@membership, membership_params)
   end
 
   # DELETE /memberships/1

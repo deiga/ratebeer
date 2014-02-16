@@ -43,7 +43,7 @@ class BeerClubsController < ApplicationController
   # PATCH/PUT /beer_clubs/1
   # PATCH/PUT /beer_clubs/1.json
   def update
-    ControllerHelper.update(@beer_club, beer_club_params)
+    shared_update(@beer_club, beer_club_params)
   end
 
   # DELETE /beer_clubs/1

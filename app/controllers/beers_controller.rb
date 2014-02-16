@@ -44,7 +44,7 @@ class BeersController < ApplicationController
   # PATCH/PUT /beers/1
   # PATCH/PUT /beers/1.json
   def update
-   ControllerHelper.update(@beer, beer_params)
+    shared_update(@beer, beer_params)
   end
 
   # DELETE /beers/1
