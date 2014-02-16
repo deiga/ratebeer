@@ -41,15 +41,7 @@ class BreweriesController < ApplicationController
   # PATCH/PUT /breweries/1
   # PATCH/PUT /breweries/1.json
   def update
-    respond_to do |format|
-      if @brewery.update(brewery_params)
-        format.html { redirect_to @brewery, notice: 'Brewery was successfully updated.' }
-        format.json { render action: 'show', status: :ok, location: @brewery }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @brewery.errors, status: :unprocessable_entity }
-      end
-    end
+    ControllerHelper.update(@brewery, brewery_params)
   end
 
   # DELETE /breweries/1
