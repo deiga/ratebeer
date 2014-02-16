@@ -1,5 +1,4 @@
 module OwnTestHelper
-
   def sign_in(credentials)
     visit signin_path
     fill_in('username', with:credentials[:username])

@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  validates :username, uniqueness: true, length: { minimum: 3, maximum: 15}
-  validates :password, length: {minimum: 4}, format: { with: /\A(?=.*\d)(?=.*[A-Z]).*\z/, message: 'requires at least one upper case letter and number'}
+  validates :username, uniqueness: true, length: { minimum: 3, maximum: 15 }
+  validates :password, length: {minimum: 4}, format: { with: /\A(?=.*\d)(?=.*[A-Z]).*\z/, message: 'requires at least one upper case letter and number' }
 
   has_many :ratings, dependent: :destroy
   has_many :beers, through: :ratings
@@ -36,10 +36,10 @@ class User < ActiveRecord::Base
   end
 
   def sum_rating(ary)
-    ary.inject(0.0) {|sum, rating| sum += rating.score }
+    ary.reduce(0.0) { |sum, rating| sum + rating.score }
   end
 
   def rating_average(ary)
-    sum_rating(ary)/ary.count
+    sum_rating(ary) / ary.count
   end
 end

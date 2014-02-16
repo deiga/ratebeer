@@ -29,7 +29,7 @@ class MembershipsController < ApplicationController
         format.html { redirect_to @membership.beer_club, notice: "#{@membership.user.username}, welcome to the club!" }
         format.json { render action: 'show', status: :created, location: @membership }
       else
-        @beer_clubs = BeerClub.all.reject{ |b| b.members.include? current_user }
+        @beer_clubs = BeerClub.all.reject { |b| b.members.include? current_user }
         format.html { render action: 'new' }
         format.json { render json: @membership.errors, status: :unprocessable_entity }
       end

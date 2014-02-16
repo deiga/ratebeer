@@ -26,7 +26,6 @@ class RatingsController < ApplicationController
     rating = Rating.find(params[:id])
     rating.delete if current_user == rating.user
     redirect_to :back
-
   end
 
   private

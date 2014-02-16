@@ -5,16 +5,14 @@ describe Beer do
     beer = build :beer, name: nil
 
     expect(beer).not_to be_valid
-    expect {
-      beer.save }.not_to change{Beer.count}
+    expect { beer.save }.not_to change{Beer.count}
   end
 
   it "is not saved without style" do
     beer = build :beer, name:'Lager', style: nil
 
     expect(beer).not_to be_valid
-    expect {
-      beer.save }.not_to change{Beer.count}
+    expect { beer.save }.not_to change{Beer.count}
 
   end
 

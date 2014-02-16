@@ -3,13 +3,13 @@ require 'spec_helper'
 describe User do
 
   it "has the username set correctly" do
-    user = User.new username:"Pekka"
+    user = User.new username: "Pekka"
 
     expect(user.username).to eq("Pekka")
   end
 
   it "is not saved without a password" do
-    user = User.create username:"Pekka"
+    user = User.create username: "Pekka"
 
     expect(user).not_to be_valid
     expect(User.count).to eq(0)
@@ -33,7 +33,7 @@ describe User do
   end
 
   describe "with a too short password" do
-    let(:user){ build(:user,password:"Secr", password_confirmation:"Secr") }
+    let(:user){ build(:user, password: "Secr", password_confirmation: "Secr") }
 
     it "is not saved" do
       expect(user).not_to be_valid
@@ -42,7 +42,7 @@ describe User do
   end
 
   describe "with an password in wrong format" do
-    let(:user){ build(:user,password:"secret1", password_confirmation:"secret1") }
+    let(:user){ build(:user, password: "secret1", password_confirmation: "secret1") }
 
     it "is not saved" do
       expect(user).not_to be_valid
