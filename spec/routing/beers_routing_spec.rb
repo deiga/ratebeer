@@ -12,11 +12,11 @@ describe BeersController do
     end
 
     it "routes to #show" do
-      expect(get("/beers/1")).to route_to("beers#show", :id => "1")
+      expect(get("/beers/1")).to route_to("beers#show", id: "1")
     end
 
     it "routes to #edit" do
-      expect(get("/beers/1/edit")).to route_to("beers#edit", :id => "1")
+      expect(get("/beers/1/edit")).to route_to("beers#edit", id: "1")
     end
 
     it "routes to #create" do
@@ -24,11 +24,11 @@ describe BeersController do
     end
 
     it "routes to #update" do
-      expect(put("/beers/1")).to route_to("beers#update", :id => "1")
+      expect(put("/beers/1")).to route_to("beers#update", id: "1")
     end
 
     it "routes to #destroy" do
-      expect(delete("/beers/1")).to route_to("beers#destroy", :id => "1")
+      expect(delete("/beers/1")).to route_to("beers#destroy", id: "1")
     end
 
   end

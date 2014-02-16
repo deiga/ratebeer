@@ -14,7 +14,7 @@ table
       td = link_to brewery.name, brewery
       td = brewery.year
       td = link_to 'Edit', edit_brewery_path(brewery) if current_user
-      td = link_to 'Destroy', brewery, data: {:confirm => 'Are you sure?'}, :method => :delete if current_user
+      td = link_to 'Destroy', brewery, data: {confirm: 'Are you sure?'}, method: :delete if current_user
 
 br
 

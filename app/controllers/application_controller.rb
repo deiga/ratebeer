@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
 
   private
     def shared_redirect(path, message)
-      redirect_to object_path, notice: message
+      redirect_to path, notice: message
     end
 
     def shared_render(action, status=nil, location=nil)
@@ -50,5 +50,6 @@ class ApplicationController < ActionController::Base
         render action: action, status: status, location: location
       else
         render action: action
+      end
     end
 end

@@ -43,7 +43,7 @@ group :development do
   gem 'bullet'
   gem 'sextant' # see routes at /rails/routes
   gem 'traceroute'
-  gem 'brakeman', :require => false
+  gem 'brakeman', require: false
   gem 'meta_request' # Binding with RailsPanel in chrome
   gem 'better_errors'
   gem 'binding_of_caller'

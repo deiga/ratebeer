@@ -12,7 +12,7 @@ describe MembershipsController do
     end
 
     it "routes to #show" do
-      expect(get("/memberships/1")).to route_to("memberships#show", :id => "1")
+      expect(get("/memberships/1")).to route_to("memberships#show", id: "1")
     end
 
     it "routes to #create" do
@@ -20,7 +20,7 @@ describe MembershipsController do
     end
 
     it "routes to #destroy" do
-      expect(delete("/memberships/1")).to route_to("memberships#destroy", :id => "1")
+      expect(delete("/memberships/1")).to route_to("memberships#destroy", id: "1")
     end
 
   end
