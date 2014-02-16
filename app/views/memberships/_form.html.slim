@@ -1,14 +1,14 @@
-= form_for @membership do |f|
-  - if @membership.errors.any?
+= form_for membership do |f|
+  - if membership.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@membership.errors.count, "error")} prohibited this membership from being saved:"
+      h2 = "#{pluralize(membership.errors.count, "error")} prohibited this membership from being saved:"
       ul
-        - @membership.errors.full_messages.each do |message|
+        - membership.errors.full_messages.each do |message|
           li = message
 
   .field
     = f.label :beer_club_id
-    = f.select :beer_club_id, options_from_collection_for_select(@beer_clubs, :id, :name)
+    = f.select :beer_club_id, options_from_collection_for_select(beer_clubs, :id, :name)
   .field
     = f.hidden_field :user_id, value: current_user.id
   .actions = f.submit 'Save'

@@ -1,9 +1,9 @@
-= form_for @brewery do |f|
-  - if @brewery.errors.any?
+= form_for brewery do |f|
+  - if brewery.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@brewery.errors.count, "error")} prohibited this brewery from being saved:"
+      h2 = "#{pluralize(brewery.errors.count, "error")} prohibited this brewery from being saved:"
       ul
-        - @brewery.errors.full_messages.each do |message|
+        - brewery.errors.full_messages.each do |message|
           li = message
 
   .field

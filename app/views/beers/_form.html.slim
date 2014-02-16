@@ -1,9 +1,9 @@
-= form_for @beer do |f|
-  - if @beer.errors.any?
+= form_for beer do |f|
+  - if beer.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@beer.errors.count, "error")} prohibited this beer from being saved:"
+      h2 = "#{pluralize(beer.errors.count, "error")} prohibited this beer from being saved:"
       ul
-        - @beer.errors.full_messages.each do |message|
+        - beer.errors.full_messages.each do |message|
           li = message
 
   .field
@@ -11,8 +11,8 @@
     = f.text_field :name
   .field
     = f.label :style_id
-    = f.select :style_id, options_from_collection_for_select(@styles, :id, :name)
+    = f.select :style_id, options_from_collection_for_select(styles, :id, :name)
   .field
     = f.label :brewery_id
-    = f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name)
+    = f.select :brewery_id, options_from_collection_for_select(breweries, :id, :name)
   .actions = f.submit 'Save'

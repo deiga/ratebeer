@@ -1,17 +1,17 @@
-= form_for @user do |f|
-  - if @user.errors.any?
+= form_for user do |f|
+  - if user.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      h2 = "#{pluralize(user.errors.count, "error")} prohibited this user from being saved:"
       ul
-        - @user.errors.full_messages.each do |message|
+        - user.errors.full_messages.each do |message|
           li = message
 
-  - if @user.new_record?
+  - if user.new_record?
     .field
       = f.label :username
       = f.text_field :username
   .field
-    - unless @user.new_record?
+    - unless user.new_record?
       = f.label :password, 'New password'
     - else
       = f.label :password
@@ -20,7 +20,7 @@
     = f.label :password_confirmation
     = f.password_field :password_confirmation
   .actions
-    - unless @user.new_record?
+    - unless user.new_record?
       = f.submit 'Update user'
     - else
       = f.submit 'Create user'

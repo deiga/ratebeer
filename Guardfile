@@ -30,6 +30,5 @@ end
 
 guard 'migrate' do
   watch(%r{^db/migrate/(\d+).+\.rb})
-  watch('db/seeds.rb')
 end
 
