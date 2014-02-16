@@ -11,7 +11,10 @@ deploy:
   api_key:
     secure: rk2wljCqWUD7kx4wfUQZHbCo5EW3rv/fS4xhMK03mcMxs0e6SQf6+tmyC+YsxwBlkFDsxSlzFkRPFDnOqkBfDwkih5+fiFG3Rm4Omu7YnqK/vn9SupB/rdZcKbtdB+1YRwCQiFek9r1SC/OjrtddNDk4c3keXzdCxIVK5Xp+GRw=
   app: glacial-coast-3420
-  run: rake db:migrate
+  run:
+    - "heroku config:set RAILS_APP_VERSION=$(git rev-parse --short master)"
+    - "heroku config:set SECRET_KEY_BASE=$(rake secret)"
+    - "rake db:migrate"
   on:
     repo: deiga/ratebeer
 env:
