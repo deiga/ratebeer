@@ -21,4 +21,33 @@ describe "Beerlist page" do
     visit beerlist_path
     expect(page).to have_content "Nikolai"
   end
+
+  it "should have beers sorted by name by default", js:true do
+    visit beerlist_path
+
+    find('table').find('tr:nth-child(2)')
+    expect(find('table').find('tbody').find('tr:nth-child(1)')).to have_content('Fastenbier')
+    expect(find('table').find('tbody').find('tr:nth-child(2)')).to have_content('Lechte Weisse')
+    expect(find('table').find('tbody').find('tr:nth-child(3)')).to have_content('Nikolai')
+  end
+
+  it "should order by style when clicked on style heading", js:true do
+    visit beerlist_path
+
+    find('table').find('tr:nth-child(2)')
+    click_link 'Style'
+    expect(find('table').find('tbody').find('tr:nth-child(1)')).to have_content('Lager')
+    expect(find('table').find('tbody').find('tr:nth-child(2)')).to have_content('Rauchbier')
+    expect(find('table').find('tbody').find('tr:nth-child(3)')).to have_content('Weizen')
+  end
+
+  it "should order by brewery when clicked on brewery heading", js:true do
+    visit beerlist_path
+
+    find('table').find('tr:nth-child(2)')
+    click_link 'Brewery'
+    expect(find('table').find('tbody').find('tr:nth-child(1)')).to have_content('Ayinger')
+    expect(find('table').find('tbody').find('tr:nth-child(2)')).to have_content('Koff')
+    expect(find('table').find('tbody').find('tr:nth-child(3)')).to have_content('Schlenkerla')
+  end
 end
