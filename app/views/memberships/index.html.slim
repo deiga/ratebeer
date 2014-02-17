@@ -13,8 +13,8 @@ table.ui.table.segment
       td = membership.beer_club_id
       td = membership.user_id
       td = link_to 'Show', membership
-      td = link_to 'Edit', edit_membership_path(membership)
-      td = link_to 'Destroy', membership, data: {confirm: 'Are you sure?'}, method: :delete
+      td = link_to 'Edit', edit_membership_path(membership), class: 'ui mini button circular'
+      td = link_to 'Destroy', membership, data: {confirm: 'Are you sure?'}, method: :delete, class: 'ui mini negative button circular'
 
 br
 

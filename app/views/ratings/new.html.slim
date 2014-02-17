@@ -7,8 +7,11 @@ h2 Create new rating
       ul
         - @rating.errors.full_messages.each do |msg|
           li = msg
-  = f.label :beer_id
-  = f.select :beer_id, options_from_collection_for_select(@beers, :id, :to_s, selecte: @rating.beer_id)
-  = f.label :score
-  = f.number_field :score
-  = f.submit
+  .field
+    = f.label :beer_id
+    = f.select :beer_id, options_from_collection_for_select(@beers, :id, :to_s, selecte: @rating.beer_id)
+  .field
+    = f.label :score
+    = f.number_field :score
+  .action
+    = f.submit, class: 'ui tiny positive button'

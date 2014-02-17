@@ -18,10 +18,8 @@ ul
   = form_for @membership do |f|
     = f.hidden_field :beer_club_id
     .action
-      = f.submit 'Join the club'
+      = f.submit 'Join the club', class: 'ui tiny positive button'
 
-= link_to 'Edit', edit_beer_club_path(@beer_club)
-' |
-= link_to 'Destroy', @beer_club, data: {confirm: 'Are you sure?'}, method: :delete
-' |
-= link_to 'Back', beer_clubs_path
+= link_to 'Edit', edit_beer_club_path(@beer_club), class: 'ui mini button circular'
+= link_to 'Destroy', @beer_club, data: {confirm: 'Are you sure?'}, method: :delete, class: 'ui mini negative button circular'
+= link_to 'Back', beer_clubs_path, class: 'ui mini button circular'

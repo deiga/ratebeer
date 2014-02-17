@@ -19,8 +19,8 @@
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation
-  .actions
+  .action
     - unless user.new_record?
-      = f.submit 'Update user'
+      = f.submit 'Update user', class: 'ui tiny positive button'
     - else
-      = f.submit 'Create user'
+      = f.submit 'Create user', class: 'ui tiny positive button'

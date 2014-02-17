@@ -19,7 +19,7 @@ p
       = f.label :score
       = f.number_field :score
     .action
-      = f.submit 'Rate'
+      = f.submit 'Rate', class: 'ui tiny positive button'
 
 = link_to 'Edit', edit_beer_path(@beer)
 '|

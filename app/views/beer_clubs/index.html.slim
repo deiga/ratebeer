@@ -14,8 +14,8 @@ table.ui.table.segment
       td = link_to beer_club.name, beer_club
       td = beer_club.founded
       td = beer_club.city
-      td = link_to 'Edit', edit_beer_club_path(beer_club) if current_user
-      td = link_to 'Destroy', beer_club, data: {confirm: 'Are you sure?'}, method: :delete if current_user
+      td = link_to 'Edit', edit_beer_club_path(beer_club), class: 'ui mini button circular' if current_user
+      td = link_to 'Destroy', beer_club, data: {confirm: 'Are you sure?'}, method: :delete, class: 'ui mini negative button circular' if current_user
 
 br
 
