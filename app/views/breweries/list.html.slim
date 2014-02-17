@@ -1,0 +1,36 @@
+script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"
+javascript:
+  function BreweriesController($scope, $http) {
+    $http.get('breweries.json').success( function(data, status, headers, config) {
+      $scope.breweries = data;
+    });
+
+    $scope.order = 'name';
+
+    $scope.click = function (order){
+        $scope.order = order;
+    }
+    $scope.searchText = '';
+  }
+
+h2 Breweries
+
+div [ng-app ng-controller="BreweriesController"]
+  'search:
+  input ng-model="searchText"
+  table
+    thead
+      tr
+        th
+          a ng-click="click('name')" Name
+        th
+          a ng-click="click('year')" Year
+        th
+          a ng-click="click('beers.count')" Beers count
+    tr ng-repeat="brewery in breweries | orderBy:order | filter:searchText"
+      td
+        '{{brewery.name}}
+      td
+        '{{brewery.year}}
+      td
+        '{{brewery.beers.count}}
