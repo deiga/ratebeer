@@ -79,6 +79,7 @@ group :test do
   gem 'coveralls', require: false
   gem 'webmock'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 group :production do
