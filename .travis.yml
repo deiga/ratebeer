@@ -1,8 +1,12 @@
 language: ruby
+env:
+  - DISPLAY=:99.0
 rvm:
 - 2.0.0
 before_script:
 - export SECRET_KEY_BASE=$(rake secret)
+- sh -e /etc/init.d/xvfb start
+- bundle exec rails server -d
 script:
 - bundle exec rake db:test:prepare
 - bundle exec rspec -fd spec/
