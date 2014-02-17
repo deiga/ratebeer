@@ -1,4 +1,4 @@
-nav.ui.menu
+nav.ui.menu.inverted
   h3.header.item Ratebeer
   = link_to 'Breweries', breweries_path, class: 'item'
   = link_to 'Beers', beers_path, class: 'item'
@@ -9,13 +9,15 @@ nav.ui.menu
   = link_to 'Places', places_path, class: 'item'
   .right.menu
     - unless current_user.nil?
-      = link_to current_user, class: 'item' do
+      .ui.dropdown.item.simple
         i.icon.user
         = current_user.username
-      = link_to 'Rate a beer', new_rating_path, class: 'item'
-      = link_to 'Join a club', new_membership_path, class: 'item'
-      .item
-        = link_to 'Signout', signout_path, method: :delete, class: 'ui negative button'
+        i.icon.dropdown
+        .menu
+          = link_to 'My page', current_user, class: 'item'
+          = link_to 'Rate a beer', new_rating_path, class: 'item'
+          = link_to 'Join a club', new_membership_path, class: 'item'
+          = link_to 'Signout', signout_path, method: :delete, class: 'item'
     - else
       .item
         = link_to 'Signin', signin_path, class: 'ui button'
