@@ -1,6 +1,5 @@
 h1 Beer places search
 
-p.notice #{notice}
 = form_tag places_path do
   = label_tag :city
   '
@@ -9,10 +8,10 @@ p.notice #{notice}
   = submit_tag 'Search'
 
 - if @places
-  table
+  table.ui.table.segment
     thead
-    - Place.rendered_fields.each do |f|
-      td = f
+      - Place.rendered_fields.each do |f|
+        td = f
     - @places.each do |p|
       tr
         - Place.rendered_fields.each do |f|
