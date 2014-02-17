@@ -1,5 +1,7 @@
 h2
   = @brewery.name
+- unless @brewery.active
+  span.ui.label retired
 p
   em Established year: #{@brewery.year}
 

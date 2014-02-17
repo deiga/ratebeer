@@ -7,7 +7,8 @@ class BreweriesController < ApplicationController
   def index
     order = params[:order] || 'name'
 
-    @breweries =  Brewery.order(order)
+    @active_breweries = Brewery.active.order(order)
+    @retired_breweries = Brewery.retired.order(order)
   end
 
   # GET /breweries/1
@@ -28,7 +29,7 @@ class BreweriesController < ApplicationController
   # POST /breweries.json
   def create
     @brewery = Brewery.new(brewery_params)
-    shared_create(@brewery, beers_path)
+    shared_create(@brewery, breweries_path)
   end
 
   # PATCH/PUT /breweries/1
@@ -58,6 +59,6 @@ class BreweriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brewery_params
-      params.require(:brewery).permit(:name, :year)
+      params.require(:brewery).permit(:name, :year, :active)
     end
 end

@@ -12,5 +12,8 @@
   .field
     = f.label :year
     = f.text_field :year
+  .field
+    = f.label :active
+    = f.check_box :active
   .action
     = f.submit 'Save', class: 'ui tiny positive button'
