@@ -63,7 +63,7 @@ class BeersController < ApplicationController
 
     def skip_if_cached
       @order = params[:order] || 'name'
-      return render :index if fragment_exist?([Beer.cache_key, @order])
+      return render :index if fragment_exist?([Beer.cache_key_collection, @order])
     end
 
     # Use callbacks to share common setup or constraints between actions.

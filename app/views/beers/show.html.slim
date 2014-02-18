@@ -1,14 +1,15 @@
-h2 = @beer.name
-p
-  strong Style:
-  '
-  = @beer.style.name
-p
-  strong Brewery:
-  '
-  = @beer.brewery.name
+- cache @beer
+  h2 = @beer.name
+  p
+    strong Style:
+    '
+    = @beer.style.name
+  p
+    strong Brewery:
+    '
+    = @beer.brewery.name
 
-= render 'shared/ratings', object: @beer
+  = render 'shared/ratings', object: @beer
 
 - if current_user
   h4 Give rating:

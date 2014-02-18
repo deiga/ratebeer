@@ -1,6 +1,6 @@
 h1 Listing beers
 
-- cache [Beer.cache_key, @order], skip_digest: true do
+- cache [Beer.cache_key_collection, @order], skip_digest: true do
   = render 'list', beers: @beers
 
 br
