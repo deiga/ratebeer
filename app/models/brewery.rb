@@ -12,6 +12,10 @@ class Brewery < ActiveRecord::Base
   scope :active, -> { where active: true }
   scope :retired, -> { where active: [nil,false] }
 
+  def to_s
+    name
+  end
+
   def self.top(n)
    Brewery.all.sort_by{ |b| -(b.average_rating||0) }.take(n)
    # palauta listalta parhaat n kappaletta

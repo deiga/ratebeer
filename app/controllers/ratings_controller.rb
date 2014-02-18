@@ -5,6 +5,7 @@ class RatingsController < ApplicationController
     @recent_ratings = Rating.recent.limit(5)
     @breweries = Brewery.top(3)
     @beers = Beer.top(3)
+    @styles = Style.top(3)
   end
 
   def new

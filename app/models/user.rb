@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   scope :most_ratings, ->() { order ratings_count: :desc }
 
+  def to_s
+    username
+  end
+
   def favourite_beer
     return nil if ratings.empty?
     ratings.order(score: :desc).limit(1).first.beer

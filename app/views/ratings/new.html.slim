@@ -9,7 +9,7 @@ h2 Create new rating
           li = msg
   .field
     = f.label :beer_id
-    = f.select :beer_id, options_from_collection_for_select(@beers, :id, :to_s, selecte: @rating.beer_id)
+    = f.select :beer_id, options_from_collection_for_select(@beers, :id, :to_s, selected: @rating.beer_id)
   .field
     = f.label :score
     = f.number_field :score

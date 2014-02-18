@@ -1,0 +1,10 @@
+table.ui.table.segment
+  thead
+    tr
+      th
+      th Average
+  tbody
+    - @breweries.each do |b|
+      tr
+        td = b.name
+        td = b.average_rating
