@@ -1,16 +1,17 @@
 h1 Breweries
 
-h2 Active
+- cache [Brewery.cache_key, @order]
+  h2 Active
 
-p Number of active breweries: #{@active_breweries.count}
+  p Number of active breweries: #{@active_breweries.count}
 
-= render 'list', breweries: @active_breweries
+  = render 'list', breweries: @active_breweries
 
-h2 Retired
+  h2 Retired
 
-p Number of retired breweries: #{@retired_breweries.count}
+  p Number of retired breweries: #{@retired_breweries.count}
 
-= render 'list', breweries: @retired_breweries
+  = render 'list', breweries: @retired_breweries
 br
 
 - if current_user

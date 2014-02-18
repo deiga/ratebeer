@@ -65,6 +65,7 @@ class BeersController < ApplicationController
       @order = params[:order] || 'name'
       return render :index if fragment_exist?([Beer.cache_key, @order])
     end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_beer
       @beer = Beer.find(params[:id])

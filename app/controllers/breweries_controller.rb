@@ -1,14 +1,14 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy, :toggle_activity]
   before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :skip_if_cached, only:[:index]
 
   # GET /breweries
   # GET /breweries.json
   def index
-    order = params[:order] || 'name'
 
-    @active_breweries = Brewery.active.order(order)
-    @retired_breweries = Brewery.retired.order(order)
+    @active_breweries = Brewery.active.order(@order)
+    @retired_breweries = Brewery.retired.order(@order)
   end
 
   # GET /breweries/1
@@ -60,6 +60,11 @@ class BreweriesController < ApplicationController
   end
 
   private
+    def skip_if_cached
+      @order = params[:order] || 'name'
+      return render :index if fragment_exist?([Brewery.cache_key, @order])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_brewery
       @brewery = Brewery.find(params[:id])

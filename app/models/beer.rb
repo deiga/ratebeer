@@ -19,6 +19,6 @@ class Beer < ActiveRecord::Base
 
   def self.cache_key
     max_updated_at = self.maximum(:updated_at).try(:utc).try(:to_s, :number)
-    "beers/all-#{count}-#{max_updated_at}"
+    "#{model_name.human.pluralize.downcase}/all-#{count}-#{max_updated_at}"
   end
  end
