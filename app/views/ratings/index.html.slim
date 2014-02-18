@@ -14,5 +14,6 @@ h4 Most rated users
 = render 'users/list', users: @users
 h4 Recent ratings
 = render 'list', ratings: @recent_ratings
+strong Number of ratings: #{@ratings.count}
 
 = link_to 'New Rating', new_rating_path if current_user.present?
