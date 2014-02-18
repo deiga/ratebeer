@@ -3,15 +3,15 @@ h2 Rating statistics
 .ui.grid
   .column.five.wide
     h4 Top rated brews
-    = render 'beerslist', beers: @beers
+    = render 'averagelist', list: @beers
   .column.five.wide
     h4 Top rated breweries
-    = render 'brewerieslist', breweries: @breweries
+    = render 'averagelist', list: @breweries
   .column.five.wide
     h4 Top rated styles
-    = render 'styleslist', styles: @styles
+    = render 'averagelist', list: @styles
 h4 Most rated users
-= render 'userslist', users: @users
+= render 'users/list', users: @users
 h4 Recent ratings
 = render 'list', ratings: @recent_ratings
 

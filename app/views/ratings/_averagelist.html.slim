@@ -4,7 +4,7 @@ table.ui.table.segment
       th
       th Average
   tbody
-    - @breweries.each do |b|
+    - list.each do |i|
       tr
-        td = b.name
-        td = b.average_rating
+        td = i
+        td = round i.average_rating
