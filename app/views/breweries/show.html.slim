@@ -1,20 +1,21 @@
-h2
-  = @brewery.name
-- unless @brewery.active
-  span.ui.label retired
-p
-  em Established year: #{@brewery.year}
+- cache @brewery
+  h2
+    = @brewery.name
+  - unless @brewery.active
+    span.ui.label retired
+  p
+    em Established year: #{@brewery.year}
 
-p = link_to "change activity", toggle_activity_brewery_path(@brewery.id), method: :post, class: "ui mini button"
+  p = link_to "change activity", toggle_activity_brewery_path(@brewery.id), method: :post, class: "ui mini button"
 
-p Number of beers #{@brewery.beers.count}
+  p Number of beers #{@brewery.beers.count}
 
-p
-  - @brewery.beers.each do |beer|
-    = link_to beer.name, beer
-    '&nbsp;
+  p
+    - @brewery.beers.each do |beer|
+      = link_to beer.name, beer
+      '&nbsp;
 
-= render 'shared/ratings', object: @brewery
+  = render 'shared/ratings', object: @brewery
 
 = edit_and_destroy_buttons(@brewery)
 = link_to 'Back', breweries_path, class: 'mini ui circular button'
