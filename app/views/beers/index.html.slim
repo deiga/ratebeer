@@ -1,17 +1,6 @@
 h1 Listing beers
 
-table.ui.table.segment
-  thead
-    tr
-      th = link_to 'Name', beers_path(order:"name")
-      th = link_to 'Style', beers_path(order:"style")
-      th = link_to 'Brewery', beers_path(order:"brewery")
-
-  - @beers.each do |beer|
-    tr
-      td = link_to beer.name, beer
-      td = link_to beer.style.name, beer.style
-      td = link_to beer.brewery.name, beer.brewery
+= render 'list', beers: @beers
 
 br
 

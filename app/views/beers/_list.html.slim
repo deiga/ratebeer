@@ -1,0 +1,7 @@
+table.ui.table.segment
+  thead
+    tr
+      th = link_to 'Name', beers_path(order:"name")
+      th = link_to 'Style', beers_path(order:"style")
+      th = link_to 'Brewery', beers_path(order:"brewery")
+  = render beers

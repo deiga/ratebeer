@@ -51,7 +51,7 @@ describe User do
   end
 
   describe "favourite beer" do
-    let(:user){create(:user) }
+    let(:user) { create(:user) }
 
     it "has method for determining one" do
       expect(user).to respond_to :favourite_beer
@@ -76,7 +76,7 @@ describe User do
   end
 
   describe "favourite style" do
-    let(:user){create(:user) }
+    let(:user) { create(:user) }
 
     it "has method for determining one" do
       expect(user).to respond_to :favourite_style
@@ -101,7 +101,7 @@ describe User do
   end
 
   describe "favourite brewery" do
-    let(:user){create(:user) }
+    let(:user){ create(:user) }
 
     it "has method for determining one" do
       expect(user).to respond_to :favourite_brewery
@@ -123,6 +123,24 @@ describe User do
 
       expect(user.favourite_brewery).to eq(best.brewery)
     end
+  end
+
+  describe "can be sorted by amount of ratings" do
+    let!(:user) { create(:user) }
+    let!(:user2) { create(:user) }
+
+    it "should sort users by amount of ratings" do
+      create(:rating, beer: create(:beer), user: user2)
+      create(:rating, beer: create(:beer), user: user2)
+      create(:rating, beer: create(:beer), user: user2)
+      create(:rating, beer: create(:beer), user: user2)
+      create(:rating, beer: create(:beer), user: user)
+      create(:rating, beer: create(:beer), user: user)
+
+      # require "pry"; binding.pry
+      expect(User.most_ratings.first).to eq user2
+    end
+
   end
 
 end

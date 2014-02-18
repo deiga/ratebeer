@@ -11,4 +11,10 @@ class Brewery < ActiveRecord::Base
 
   scope :active, -> { where active: true }
   scope :retired, -> { where active: [nil,false] }
+
+  def self.top(n)
+   Brewery.all.sort_by{ |b| -(b.average_rating||0) }.take(n)
+   # palauta listalta parhaat n kappaletta
+   # miten? ks. http://www.ruby-doc.org/core-2.1.0/Array.html
+ end
 end

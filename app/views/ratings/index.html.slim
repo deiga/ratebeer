@@ -1,11 +1,13 @@
 h2 List of ratings
 
-p Number of ratings: #{@ratings.count}
-ul
-  - @ratings.each do |rating|
-    li
-      = rating
-      '
-      = link_to rating.user.username, rating.user
+
+h4 Top rated brews
+= render 'beers/list', beers: @beers
+h4 Top rated breweries
+= render 'breweries/list', breweries: @breweries
+h4 Most rated users
+= render 'users/list', users: @users
+h4 Recent ratings
+= render 'list', ratings: @recent_ratings
 
 = link_to 'New Rating', new_rating_path if current_user.present?
