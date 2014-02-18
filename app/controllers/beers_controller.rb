@@ -2,13 +2,12 @@ class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
   before_action :set_form, only: [:new, :edit, :create]
   before_action :ensure_that_signed_in, except: [:index, :show, :list, :nglist]
+  before_action :skip_if_cached, only:[:index]
 
   # GET /beers
   # GET /beers.json
   def index
-    order = params[:order] || 'name'
-
-    @beers =  case order
+    @beers =  case @order
               when 'name' then Beer.includes(:brewery,:style).order(:name)
               when 'brewery' then Beer.includes(:brewery,:style).order('breweries.name')
               when 'style' then Beer.includes(:brewery,:style).order('styles.name')
@@ -61,6 +60,11 @@ class BeersController < ApplicationController
   end
 
   private
+
+    def skip_if_cached
+      @order = params[:order] || 'name'
+      return render :index if fragment_exist?([Beer.cache_key, @order])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_beer
       @beer = Beer.find(params[:id])

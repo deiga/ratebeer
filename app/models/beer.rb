@@ -12,8 +12,13 @@ class Beer < ActiveRecord::Base
   end
 
   def self.top(n)
-   Beer.all.sort_by{ |b| -(b.average_rating||0) }.take(n)
-   # palauta listalta parhaat n kappaletta
-   # miten? ks. http://www.ruby-doc.org/core-2.1.0/Array.html
+    Beer.all.sort_by{ |b| -(b.average_rating||0) }.take(n)
+    # palauta listalta parhaat n kappaletta
+    # miten? ks. http://www.ruby-doc.org/core-2.1.0/Array.html
+  end
+
+  def self.cache_key
+    max_updated_at = self.maximum(:updated_at).try(:utc).try(:to_s, :number)
+    "beers/all-#{count}-#{max_updated_at}"
+  end
  end
-end
