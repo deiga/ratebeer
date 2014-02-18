@@ -51,6 +51,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'guard-rspec'
   gem 'guard-bundler'
+  gem 'rack-mini-profiler'
 end
 
 gem 'pry-rails'
