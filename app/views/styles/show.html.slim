@@ -9,7 +9,5 @@ strong Beers
 - else
   p No beers for this style added yet.
 
-- if current_user
-  = link_to 'Edit', edit_style_path(@style), class: 'ui mini button circular'
-  = link_to 'Destroy', @style, confirm: 'Are you sure?', method: :delete, class: 'ui mini negative button circular'
+= edit_and_destroy_buttons(@style)
 

@@ -21,6 +21,5 @@ p
     .action
       = f.submit 'Rate', class: 'ui tiny positive button'
 
-= link_to 'Edit', edit_beer_path(@beer)
-'|
-= link_to 'Back', beers_path
+= edit_and_destroy_buttons(@beer)
+= link_to 'Back', beers_path, class: 'mini ui circular button'

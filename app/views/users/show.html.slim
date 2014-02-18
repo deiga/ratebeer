@@ -21,7 +21,5 @@ ul
       '
       = link_to 'delete', r, data: {confirm: 'Are you sure?'}, method: :delete if @user == current_user
 
-- if @user == current_user
-  = link_to 'Edit', edit_user_path(@user), class: 'ui mini button circular'
-  = link_to 'Destroy', @user, data: {confirm: 'Are you sure?'}, method: :delete, class: 'ui mini negative button circular'
+= edit_and_destroy_buttons(@user)
 = link_to 'Back', users_path, class: 'ui mini button circular'
