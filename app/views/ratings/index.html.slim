@@ -3,17 +3,22 @@ h2 Rating statistics
 .ui.grid
   .column.five.wide
     h4 Top rated brews
-    = render 'averagelist', list: @beers
+    - cache [Beer.cache_key_collection], skip_digest: true do
+      = render 'averagelist', list: @beers
   .column.five.wide
     h4 Top rated breweries
-    = render 'averagelist', list: @breweries
+    - cache [Brewery.cache_key_collection], skip_digest: true do
+      = render 'averagelist', list: @breweries
   .column.five.wide
     h4 Top rated styles
-    = render 'averagelist', list: @styles
+    - cache [Style.cache_key_collection], skip_digest: true do
+      = render 'averagelist', list: @styles
 h4 Most rated users
-= render 'users/list', users: @users
+- cache [User.cache_key_collection], skip_digest: true do
+  = render 'users/list', users: @users
 h4 Recent ratings
 = render 'list', ratings: @recent_ratings
 strong Number of ratings: #{@ratings.count}
+br
 
 = link_to 'New Rating', new_rating_path if current_user.present?

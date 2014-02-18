@@ -35,9 +35,14 @@ class User < ActiveRecord::Base
     get_favourite_group_by_rating_average(category)
   end
 
+  def self.cache_key_collection
+    max_updated_at = self.maximum(:updated_at).try(:utc).try(:to_s, :number)
+    "#{model_name.human.pluralize.downcase}/all-#{count}-#{max_updated_at}"
+  end
+
   private
   def get_favourite_group_by_rating_average(category)
-    group = ratings.group_by { |r| r.beer.send(category) }
+    group = ratings.includes(:beer).group_by { |r| r.beer.send(category) }
     group.each { |k, ary|  group[k] = rating_average(ary) }.max_by { |label, score| score }.first
   end
 

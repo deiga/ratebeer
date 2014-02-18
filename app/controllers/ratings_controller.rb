@@ -3,9 +3,9 @@ class RatingsController < ApplicationController
     @ratings = Rating.all
     @users = User.most_ratings.limit(3)
     @recent_ratings = Rating.recent.limit(5)
-    @breweries = Brewery.top(3)
-    @beers = Beer.top(3)
-    @styles = Style.top(3)
+    @breweries = Rails.cache.fetch(Brewery.cache_key_collection, expires_in:10.minutes) { Brewery.top(3) }
+    @beers = Rails.cache.fetch(Beer.cache_key_collection, expires_in:10.minutes) { Beer.top(3) }
+    @styles = Rails.cache.fetch(Style.cache_key_collection, expires_in:10.minutes) { Style.top(3) }
   end
 
   def new
