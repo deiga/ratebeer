@@ -18,6 +18,9 @@ Ratebeer::Application.routes.draw do
 
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
+  get 'auth/:provider/callback', to: 'sessions#callback'
+  post 'auth/:provider/callback', to: 'sessions#callback'
+  get 'auth/failure', to: redirect('/')
   delete 'signout', to: 'sessions#destroy'
 
   get 'beerlist', to:'beers#list'

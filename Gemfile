@@ -91,3 +91,4 @@ end
 gem 'httparty'
 gem 'figaro'
 gem 'geocoder'
+gem 'omniauth-steam'

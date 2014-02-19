@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class User < ActiveRecord::Base
   include RatingAverage, CollectionCache
 
@@ -34,5 +36,19 @@ class User < ActiveRecord::Base
     return nil if ratings.empty?
     # get_favourite_group_by_rating_average(category)
     beers.group(category).average(:score).max_by { |ary| ary.last }.first
+  end
+
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.username = auth.info.name
+      if user.password_digest.blank?
+        user.password = SecureRandom.hex(16).sub!(/\D/, &:capitalize)
+        user.password_confirmation = user.password
+      end
+      user.oauth_token = auth.credentials.token
+      user.new_record? ? user.save! : user.save!(validate: false)
+    end
   end
 end
