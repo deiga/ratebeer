@@ -1,11 +1,11 @@
 class RatingsController < ApplicationController
   def index
-    @ratings = Rating.all
-    @users = User.most_ratings.limit(3)
-    @recent_ratings = Rating.recent.limit(5)
-    @breweries = Rails.cache.fetch(Brewery.cache_key_collection, expires_in:10.minutes) { Brewery.top(3) }
-    @beers = Rails.cache.fetch(Beer.cache_key_collection, expires_in:10.minutes) { Beer.top(3) }
-    @styles = Rails.cache.fetch(Style.cache_key_collection, expires_in:10.minutes) { Style.top(3) }
+    @ratings_count = Rating.count
+    @users = Rails.cache.fetch(User.cache_key_collection, expires_in:10.minutes) { User.most_ratings.limit(3) }
+    @recent_ratings = Rails.cache.fetch(Rating.cache_key_collection, expires_in:10.minutes) { Rating.recent.includes(:user,:beer).limit(5) }
+    @breweries = Rails.cache.fetch(Brewery.cache_key_collection, expires_in:10.minutes) { Brewery.includes(:ratings).top(3) }
+    @beers = Rails.cache.fetch(Beer.cache_key_collection, expires_in:10.minutes) { Beer.includes(:ratings).top(3) }
+    @styles = Rails.cache.fetch(Style.cache_key_collection, expires_in:10.minutes) { Style.includes(:ratings).top(3) }
   end
 
   def new
