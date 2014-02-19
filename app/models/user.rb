@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include RatingAverage
+  include RatingAverage, CollectionCache
 
   has_secure_password
 
@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
 
-  scope :most_ratings, ->() { order ratings_count: :desc }
+  scope :most_ratings, -> { order ratings_count: :desc }
 
   def to_s
     username
@@ -32,25 +32,7 @@ class User < ActiveRecord::Base
 
   def favourite(category)
     return nil if ratings.empty?
-    get_favourite_group_by_rating_average(category)
-  end
-
-  def self.cache_key_collection
-    max_updated_at = self.maximum(:updated_at).try(:utc).try(:to_s, :number)
-    "#{model_name.human.pluralize.downcase}/all-#{count}-#{max_updated_at}"
-  end
-
-  private
-  def get_favourite_group_by_rating_average(category)
-    group = ratings.includes(:beer).group_by { |r| r.beer.send(category) }
-    group.each { |k, ary|  group[k] = rating_average(ary) }.max_by { |label, score| score }.first
-  end
-
-  def sum_rating(ary)
-    ary.reduce(0.0) { |sum, rating| sum + rating.score }
-  end
-
-  def rating_average(ary)
-    sum_rating(ary) / ary.count
+    # get_favourite_group_by_rating_average(category)
+    beers.group(category).average(:score).max_by { |ary| ary.last }.first
   end
 end

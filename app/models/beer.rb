@@ -1,5 +1,5 @@
 class Beer < ActiveRecord::Base
-  include RatingAverage
+  include RatingAverage, CollectionCache
 
   validates :name, :style, :brewery, presence: :true
   belongs_to :brewery, touch: true
@@ -16,9 +16,4 @@ class Beer < ActiveRecord::Base
     # palauta listalta parhaat n kappaletta
     # miten? ks. http://www.ruby-doc.org/core-2.1.0/Array.html
   end
-
-  def self.cache_key_collection
-    max_updated_at = self.maximum(:updated_at).try(:utc).try(:to_s, :number)
-    "#{model_name.human.pluralize.downcase}/all-#{count}-#{max_updated_at}"
-  end
- end
+end
