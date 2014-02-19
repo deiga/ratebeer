@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  before_action :set_membership, only: [:show, :destroy]
+  before_action :set_membership, only: [:show, :destroy, :confirm]
 
   # GET /memberships
   # GET /memberships.json
@@ -44,6 +44,12 @@ class MembershipsController < ApplicationController
       format.html { redirect_to memberships_url }
       format.json { head :no_content }
     end
+  end
+
+  def confirm
+    @membership.update_attribute :confirmed, true
+
+    redirect_to :back, notice:"Member #{@membership.user} has been approved"
   end
 
   private

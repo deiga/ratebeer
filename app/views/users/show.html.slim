@@ -7,9 +7,15 @@ h2 #{@user.username}
 
 = render 'shared/ratings', object: @user
 
-p Belongs to #{pluralize(@user.beer_clubs.count, 'club')}
+h3 Beer clubs
+strong member of
 ul
-  - @user.beer_clubs.each do |bc|
+  - @user.memberships.confirmed.each do |bc|
+    li = link_to bc.name, bc
+
+strong applied member of
+ul
+  - @user.memberships.unconfirmed.each do |bc|
     li = link_to bc.name, bc
 
 ul

@@ -16,12 +16,15 @@ deploy:
     secure: rk2wljCqWUD7kx4wfUQZHbCo5EW3rv/fS4xhMK03mcMxs0e6SQf6+tmyC+YsxwBlkFDsxSlzFkRPFDnOqkBfDwkih5+fiFG3Rm4Omu7YnqK/vn9SupB/rdZcKbtdB+1YRwCQiFek9r1SC/OjrtddNDk4c3keXzdCxIVK5Xp+GRw=
   app: glacial-coast-3420
   run:
-    - "heroku config:set RAILS_APP_VERSION=$(git rev-parse --short master)"
-    - "heroku config:set SECRET_KEY_BASE=$(rake secret)"
-    - "rake db:migrate"
+  - heroku config:set RAILS_APP_VERSION=$(git rev-parse --short master)
+  - heroku config:set SECRET_KEY_BASE=$(rake secret)
+  - rake db:migrate
   on:
     repo: deiga/ratebeer
 env:
   global:
-  - secure: LyIqsLUDgA1bMuL5K4+qTw1kuyMmjD3Y0D4WQaFMLnHjiahweXOz48P2p9ICaNlTkbQTSKeXmI48IGZE3XFj3w6bHlzbv5B0LUni2/wMmu9ORArSgBq6SpE2ehsH2+ls4L5x46Wrm+qCf7DzhbR0CjQW5Yp6uLKYrN/UYgG5jWo=
-  - secure: Ly/EAOPIJz6bPVhx+bnHasQi8ZHF6lhtnbJE0SzPStFWIRCuFRWIyyLHMp8L+DqYNBMKAt1eHc17E3iCKhUP5uJqZuSgzhAZ0zkH9pRMoRnZNJRqb2XeC96Z0MyFElL3b3ul66vSCOYLZgJorRQEiV13PVkLH9stl1X89Y4Vutk=
+  - secure: xc2f0du7r4/fpY4P+UQaZaJ+JwMXhbAP+Go4SXbJtbAi7LNBOAUTnFAcqjSCxlmo8i4KeuBNJ4f1hIxzFmvyhi9bLKxwkBmmycYA+U8jBhTZxg+/Q7DPNCHZWyQiD0boKMFcQUVp87H5nTEn5w98eLk/UG18AxL6wIRW1cxWbmg=
+  - secure: gmQriD0ERg2HXE+m6eDJ2DbJi1jw60UxUrdCQr5KlzRu+71aMKx4KVzNw/N+vnPv3PFG9dMvy0r6oHZDjBlaIldlCG+aX6Gna0HAwMJp4brdCv1YKbD9dR2uCsQGY77QnaF5xXXaeENYaDvMtLqlyRPJLiZWfz2o/H0mFe4c6dQ=
+  - secure: gXkZMTpS6g8TTwBRToiNS3IWGWjBdIzU2ThfBhBQeSavN39RH95cSW03f4/Q02w7N71Aet21rvWPvU+7npeyhOOlZfkmU8u89OwfRLtyWQpEV6MFLEH5hvps0WFHbum2cPxPxKQXCtiQfKzaWkQuT2t+oJhf1PkGNF815FWENNA=
+  - secure: IdhejXBAu/gw9vMLsl1RB9tZrq86WQYdhZmWz//AJ3Sale1kducgDCd8CRuEMEjFSUkhTjxpMfDRqh6lYsrvpRrThQ1KzPuJdmCkYhA5jXs/gLtXBvMKXFNKRSykLI8IUQniF1uSUcXABMISHMWaO7hAkd2JxRwUcHYEdcJvVE4=
+  - secure: PcmIdatFLThw35aQDHOiS00qmX41shzPZNe9gQlL+SLQtkc2VjU9Nq+IINcKZla6atRhASBYC1A0McR0DSXAKsZoHfP6e7TRj7Zm7VDkGIVgIS/hCOMMOOdH2HAIBCFmAT4SWONU0Mfk5ITW8hN8HcMOJ3fu1coSa+mK9hrhoHw=

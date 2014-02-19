@@ -2,8 +2,12 @@
 
 FactoryGirl.define do
   factory :beer_club do
-    name "MyString"
-    founded 1
-    city "MyString"
+    name "Test club"
+    founded { Time.new.year }
+    city "Helsinki"
+
+    after(:create) do |bc, evaluator|
+      create_list(:membership, 1, beer_club: bc)
+    end
   end
 end

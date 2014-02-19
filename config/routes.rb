@@ -1,7 +1,11 @@
 Ratebeer::Application.routes.draw do
 
   resources :styles, except: [:new, :create]
-  resources :memberships, except: [:edit, :update]
+  resources :memberships, except: [:edit, :update] do
+    member do
+      post 'confirm'
+    end
+  end
   resources :beer_clubs
   resources :users
   resources :beers

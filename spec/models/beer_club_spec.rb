@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe BeerClub do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "should create a club with 1 member" do
+    bc = create :beer_club
+
+    expect(BeerClub.count).to eq 1
+    expect(bc.members.count).to eq 1
+    expect(Membership.count).to eq 1
+  end
 end

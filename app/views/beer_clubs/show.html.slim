@@ -12,13 +12,22 @@ p
   strong Has #{pluralize(@beer_club.members.count, 'member')}:
 ul
   - @beer_club.members.each do |u|
-    li = link_to u.username, u
+    li = link_to u, u
 
-- if current_user and not @beer_club.members.include? current_user
-  = form_for @membership do |f|
-    = f.hidden_field :beer_club_id
-    .action
-      = f.submit 'Join the club', class: 'ui tiny positive button'
+- if current_user
+  - unless @beer_club.members.include? current_user
+    = form_for @membership do |f|
+      = f.hidden_field :beer_club_id
+      .action
+        = f.submit 'Join the club', class: 'ui tiny positive button'
+  - if @unconfirmed_members.present?
+    h3 Outstanding applications
+    ul
+      - @unconfirmed_members.each do |m|
+        li
+        = link_to m.user
+        '
+        = link_to 'Confirm', confirm_membership_path(m), class: 'ui button circular blue'
 
 = edit_and_destroy_buttons(@beer_club)
 = link_to 'Back', beer_clubs_path, class: 'ui mini button circular'
